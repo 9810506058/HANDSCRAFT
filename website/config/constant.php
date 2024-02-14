@@ -1,7 +1,7 @@
 <?php
 //start session
 session_start();
-define('SITEURL','http://localhost/PRACTICE GIT/');
+define('SITEURL','http://localhost/HANDSCRAFT/website/');
 define('LOCALHOST','localhost');
 define('DB_USERNAME','root');
 define('DB_PASSWORD','');
