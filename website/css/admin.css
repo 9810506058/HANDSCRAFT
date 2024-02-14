@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.wrapper{
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+
+}
+.text-center{
+    text-align: center;
+
+}
+.clearfix{
+    float:none;
+    clear:both;
+}
+/*  css for menu*/
+ .menu {
+    border-bottom: 1px solid black;
+  
+} 
+.menu ul{
+    list-style-type: none;
+}
+.menu ul li{
+    display: inline;
+    padding: 3%;
+
+
+}
+.menu ul li a {
+    text-decoration: none;
+    color:brown;
+    font-weight: bold;
+
+}
+.menu ul li a:hover{
+    color: blue;
+
+}
+.tbl-full{
+    width: 100%;
+}
+.tbl-30{
+    width: 30%;
+}
+.tbl-70{
+    width: 70%;
+}
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+text-align: left;
+}
+table tr td{
+    padding: 1%;
+}
+.btn-primary{
+    background-color: rgb(125, 125, 186);
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+}
+.btn-primary:hover{
+    background-color: green;
+    color: white;
+}
+
+.btn-secondary{
+    background-color: #7bed9f;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+}
+.btn-secondary:hover{
+    background-color: #3742fa;
+    color: wheat;
+}
+
+.btn-danger{
+    background-color: red;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+}
+.btn-danger:hover{
+    background-color: #3742fa;
+}.btn-delete {
+    padding: 1%;
+    text-decoration: none;
+    color: black !important;  /* Set the color to black and use !important to override other styles */
+    font-weight: bold;
+}
+
+.success{
+    color:green;
+
+}
+.error{
+    color:red;
+}
+
+
+/* css for main content*/
+.main-content{
+    background-color:#f1f2f6;
+    padding: 3% 0;
+}
+.col-4{
+    width:18%;
+    background-color:white;
+    margin:1%;
+    padding: 2%;
+    float:left;
+}
+
+/*  css for footer*/
+.footer{
+    background-color: grey;
+    position:static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: white;
+  text-align: center;
+}
+/* css for login */
+.login{
+    border: 5px solid black;
+    width:10%;
+    margin: 5% auto;
+    padding: 2%;
+}
+
+/* CSSS for navbar section */
+
+.logo{
+    width: 15%;
+    float: left;
+}
+.menu{
+    line-height: 60px;
+}
+.menu ul{
+    list-style-type: none;
+}
+
+.menu ul li{
+    display: inline;
+    padding: 1%;
+    font-weight: bold;
+}
+
+/* CSS for Mobile Size or Smaller Screen */
+
+@media only screen and (max-width:768px){
+    .logo{
+        width: 80%;
+        float: none;
+        margin: 1% auto;
+    }
+
+    .menu ul{
+        text-align: center;
+    }
+
+    .item-search input[type="search"]{
+        width: 90%;
+        padding: 2%;
+        margin-bottom: 3%;
+    }
+
+    .btn{
+        width: 9%;
+        padding: 2%;
+    }
+
+    .item-search{
+        padding: 10% 0;
+    }
+
+    .categories{
+        padding: 20% 0;
+    }
+    h2{
+        margin-bottom: 10%;
+    }
+    .box-3{
+        width: 100%;
+        margin: 4% auto;
+    }
+
+    .item-menu{
+        padding: 20% 0;
+    }
+
+    .item-menu-box{
+        width: 90%;
+        padding: 5%;
+        margin-bottom: 5%;
+    }
+    .social{
+        padding: 5% 0;
+    }
+    .order{
+        width: 100%;
+    }
+}
