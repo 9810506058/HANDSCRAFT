@@ -146,3 +146,18 @@ a{
 }
 
 /* Footer End */
+/*media query for the device like nest hub  dimension 1024*600 */
+@media only screen and (max-width:1000px){
+    #footer .f-content{
+        text-align: center;
+        font-size: 20px;
+    }
+    #footer .c-content{
+        font-size: 10px;
+    }
+    
+
+}
+
+
+

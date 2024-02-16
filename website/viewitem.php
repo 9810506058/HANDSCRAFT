@@ -49,6 +49,10 @@ if(isset($_GET['item_id'])) {
         <h5 class="card-title"><?php echo $title; ?></h5>
         <p class="card-text">Rs <?php echo $price; ?></p>
         <p class="card-text"><?php echo $description; ?></p>
+        <a href="<?php echo SITEURL; ?>order.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
+        </div>
+    </div>
+  
        
       </div>
     </div>

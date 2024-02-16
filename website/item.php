@@ -39,7 +39,7 @@ include("partials-frontend/nav.php");
                 ?>
                 <div class="card-body text-center">
                   <h3><?php echo $title;?></h3>
-                  <h6><?php echo $description;?></h6>
+                  <h6></h6>
                   <p class="text-danger"> Rs <?php echo $price;?></p>
                  
                     <a href="<?php echo SITEURL; ?>order.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
