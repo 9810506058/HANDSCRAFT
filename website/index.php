@@ -81,6 +81,7 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
             $title = $row['title'];
             $price = $row['price'];
             $description = $row['description'];
+            $sub_description = $row['sub_description'];
             $image_name = $row['image_name'];
     ?>
             <div class="col-md-3 py-3">
@@ -101,6 +102,7 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
                   <h3><?php echo $title ?></h3>
                   <!-- <h6><?php echo $description ?></h6> -->
                   <p class="text-center text-danger"> Rs <?php echo $price ?> </p>
+                  <p class="text-center text-danger"> <?php echo $sub_description?></p>
                   <a href="#" class="btn btn-primary">Add to cart</a>
                   <a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary">Quick View</a>
                 </div>
