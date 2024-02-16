@@ -34,7 +34,7 @@ if(isset($_GET['item_id'])) {
                   //Check whether image available or not
                   if ($image_name == "") {
                       //Image not Available
-                      echo "<div class='error'>Image not Available.</div>";
+                      echo "<div class='text-danger'>Image not Available.</div>";
                   } else {
                       //Image Available
                       

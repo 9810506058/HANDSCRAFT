@@ -104,7 +104,7 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
                   <a href="#" class="btn btn-primary">Add to cart</a>
                   <a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary">Quick View</a>
                 </div>
-              </div>
+              </div>  
             </div>
     <?php
         }
