@@ -49,9 +49,30 @@ include('./config/constant.php');
       <li class="nav-item">
         <a href="index.php" class="nav-link">Home</a>
       </li>
-       <li class="nav-item">
-        <a href="categories.php" class="nav-link">Category</a>
-      </li>
+      <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        category
+    </a>
+    <ul class="dropdown-menu">
+        <?php
+        // Display categories from the database
+        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' ";
+        $res = mysqli_query($conn, $sql);
+        $count = mysqli_num_rows($res);
+        if ($count > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+                $id = $row['id'];
+                $title = $row['title'];
+                // Modify the href attribute to redirect to viewitem.php with category ID as a parameter
+                echo '<li><a class="dropdown-item" href="category-items.php?category_id=' . $id . '">' . $title . '</a></li>';
+            }
+        }
+        ?>
+    </ul>
+</li>
+
+
+
       <li class="nav-item">
         <a href="item.php" class="nav-link">Item</a>
       </li>

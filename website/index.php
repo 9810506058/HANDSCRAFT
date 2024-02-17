@@ -90,7 +90,7 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
                 //Check whether image available or not
                 if($image_name == "") {
                     //Image not Available
-                    echo "<div class='error'>Image not available.</div>";
+                    echo "<div class='text-danger'>Image not available.</div>";
                 } else {
                     //Image Available
                 ?>
@@ -127,25 +127,7 @@ more items</a><a href="item.php" class="btn text-danger"><i class="fa-solid fa-a
 
 </p>
 
-<!-- javascript code to display the category in the same page when the arrow is clicked  without redirecting
-we are using ajax here for this purpose -->
-<script>
-  $(document).ready(function(){
-    
-    $(".fa-arrow-down").click(function(){
-      
-      $.ajax({
-        
-        url: "categories.php",
-        type: "POST",
-        success: function(data){
-          
-          $("#item").html(data);
-          }
-        })
-      })
-      });
-      </script>
+
        
 
 
