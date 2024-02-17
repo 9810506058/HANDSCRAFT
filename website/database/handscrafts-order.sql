@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2024 at 05:24 AM
+-- Generation Time: Feb 17, 2024 at 04:33 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,8 +39,9 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id`, `full_name`, `username`, `password`) VALUES
-(14, 'prashant', 'prashant', '202cb962ac59075b964b07152d234b70'),
-(15, 'kabin', 'kabin', '202cb962ac59075b964b07152d234b70');
+(15, 'kabin', 'kabin', '202cb962ac59075b964b07152d234b70'),
+(16, 'prashant', 'prashant', '202cb962ac59075b964b07152d234b70'),
+(17, 'alish daju', 'daju', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -61,12 +62,9 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`id`, `title`, `image_name`, `featured`, `active`) VALUES
-(13, 'messi j', 'item_Category_878.jpg', 'Yes', 'Yes'),
-(14, ' title', 'item_Category_844.png', 'Yes', 'Yes'),
-(17, 'saman', 'item_Category_960.JPG', 'Yes', 'Yes'),
-(18, 'hacker', 'item_Category_81.jpg', 'Yes', 'Yes'),
-(19, 'haha', 'item_Category_362_1707728979.jpg', 'Yes', 'Yes'),
-(20, 'sampanna Adhikari', 'item_Category_656.jpg', 'Yes', 'Yes');
+(21, 'bag', 'item_Category_631.jpg', 'Yes', 'Yes'),
+(22, 'canva_messi', 'item_Category_609.jpg', 'Yes', 'Yes'),
+(23, 'buddha_Canva', 'item_Category_172.png', 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -78,6 +76,7 @@ CREATE TABLE `tbl_item` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` longtext NOT NULL,
+  `sub_description` longtext NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `image_name` varchar(255) NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
@@ -89,15 +88,9 @@ CREATE TABLE `tbl_item` (
 -- Dumping data for table `tbl_item`
 --
 
-INSERT INTO `tbl_item` (`id`, `title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
-(16, 'messi name', 'Thadobati Singing Bowl, Jambati Singing Bowl, Ultabati Singing Bowl, Naga or Pedestal Singing Bowl, Mani Singing Bowl, Lingam Singing Bowl, Manipuri Singing Bowl, Remuna Singing Bowl and Crystal Singing Bowl', 450.00, 'item-Name-4518.JPG', 13, 'Yes', 'Yes'),
-(17, 'this is item', 'messi ', 1050.00, 'item-Name-8320.jpg', 13, 'Yes', 'Yes'),
-(18, 'name', 'this is title name', 450.00, 'item-Name-2683.jpeg', 13, 'Yes', 'Yes'),
-(19, 'name', 'this is name', 450.00, 'item-Name-8141.jpg', 14, 'Yes', 'Yes'),
-(20, 'this is saman picture', 'saman vai', 450.00, 'item-Name-9033.JPG', 17, 'Yes', 'Yes'),
-(21, 'sampey', 'sampey fatah manxey hoo \r\n\r\npardai pardena', 450.00, 'item-Name-9855.jpg', 20, 'Yes', 'Yes'),
-(22, 'sampanna', 'this is sampama   jjj', 240.00, '', 20, 'Yes', 'Yes'),
-(23, 'THIS IS ITEM', 'ITEM2', 450.00, 'item-Name-1287.png', 13, 'Yes', 'Yes');
+INSERT INTO `tbl_item` (`id`, `title`, `description`, `sub_description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
+(34, 'wall canva', 'this canva is specially designed to  furnish the  meeting room and it is specially handmade', 'enhance the ambiance of your room', 1050.00, 'item-Name-9372.png', 22, 'Yes', 'Yes'),
+(35, 'buddha wall poster', 'description here', 'peaceful', 1040.00, 'item-Name-7669.png', 23, 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -155,19 +148,19 @@ ALTER TABLE `tbl_order`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
