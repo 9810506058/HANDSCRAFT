@@ -36,8 +36,7 @@ include('./config/constant.php');
     <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
 </head>
 <body>
-    
-
+ 
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-sm justify-content-center " id="navbar">
   <a href="index.php" class="navbar-brand" id="logo"><img src="./images/logo.jpg" alt=""></a>
@@ -71,11 +70,34 @@ include('./config/constant.php');
     </ul>
 </li>
 
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Item
+    </a>
+    <ul class="dropdown-menu">
+        <?php
+        // Display categories from the database
+        
+          
 
+        $sql = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes' ";
+        $res = mysqli_query($conn, $sql);
+        $count = mysqli_num_rows($res);
+        if ($count > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+                $id = $row['id'];
+                $title = $row['title'];
 
-      <li class="nav-item">
-        <a href="item.php" class="nav-link">Item</a>
-      </li>
+                // Modify the href attribute to redirect to viewitem.php with category ID as a parameter
+                echo '<li><a class="dropdown-item" href="viewitem.php? item_id=' . $id . '" style="font-size: 16px;">' . $title . '</a></li>';
+                // Adjust the font-size as needed, in this example, it's set to 16 pixels.
+            }
+        }
+      
+        ?>
+    </ul>
+</li>
+
       <li class="nav-item">
         <a href="About-us.php" class="nav-link"> About us</a>
       </li>
@@ -84,19 +106,31 @@ include('./config/constant.php');
       <li class="nav-item">
         <a href="add-to-cart.php" class="nav-link"> Cart <i class="fa-solid fa-cart-shopping"></i></a>
       </li>
-     
-    </ul>
-    <form class="d-flex" action="<?php echo SITEURL; ?>item-search.php" method="POST"><div class="input-group">
-    <input type="text" class="form-control me-2" placeholder="Search your favourite items and artistry" id="search" name="search" required>
+      &nbsp;  &nbsp; &nbsp;
+      <li>
+      <form class="d-flex" action="<?php echo SITEURL; ?>item-search.php" method="POST"><div class="input-group">
+    <input type="text" class="form-control me-2" placeholder="Search your favourite items and artistry" id="search" name="search" required >
     <button type="submit" id="searchbt">
         <i class="bi bi-search"></i>
-    </button>
+      </button>
+   
 </div>
 
-
 </form>
+      </li>
+      <!-- Search bar -->
+      <!--login-->
+      <li class="nav-item">
+        <a href="login.php" class="nav-link">Login</a>
+      </li>
+
+     
+    </ul>
+    
 
   </div>
 </nav>
 <!-- Navbar End -->
+
+
 

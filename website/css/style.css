@@ -10,8 +10,7 @@
 /* Navbar Start */
 #navbar{
     background: transparent;
-    padding: 0px 10px 0px;
-  
+    padding: 0px 5px 0px;
     margin: 0;
     justify-content: space-between ;
     
@@ -50,7 +49,7 @@
     .nav-item .nav-link {
         font-size: 15px;
     }
-    nav-item.dropdown:hover .dropdown-menu {
+    .nav-item.dropdown:hover .dropdown-menu {
         display: block;
         align-content: center;
         align-items: center;
@@ -95,6 +94,8 @@
     }
 
 }
+
+
 #btn{
     border-radius: 5px;
     padding: 5px;
