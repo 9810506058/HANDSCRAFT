@@ -9,7 +9,7 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
 ?>
 
 
-<h1>Items on Your Search  "<?php echo $search; ?>"</h1>
+<h1>Items on Your Search <span class="text-success font-weight-bold font-italic" style="font-size:40 px;">"<?php echo $search; ?>"</span></h1>
 </div>
 <div class="container">
   <div class="line" style="width: 100%; height: 2px; background-color: #e53937;"></div>
@@ -51,7 +51,11 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
                 <?php
             }
         } else {
-            echo "<div class='col-md-12'><div class='error text-danger'>Item not found.</div></div>";
+            echo "<div class='col-md-12'><div class='error text-danger'>Item not found.</div></div>";?>
+            <script>
+                alert("Item not found")
+            </script>
+            <?php
         }
         ?>
     </div>

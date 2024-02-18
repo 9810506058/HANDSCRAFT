@@ -44,7 +44,7 @@ if(isset($_GET['category_id'])) {
                 $description = $row2['description'];
                 $image_name = $row2['image_name'];
         ?>
-        <div class="col-md-3 py-3 py-md-0">
+        <div class="col-md-3 py-2 py-md-0">
             <div class="card">
                 <?php 
                 if($image_name == "") {
