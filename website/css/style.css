@@ -172,9 +172,11 @@ a{
     color: white;
 }
 
+
+
 /* Footer End */
 /*media query for the device like nest hub  dimension 1024*600 */
-@media only screen and (min-width:1024px){
+@media  screen and (min-width:1024px){
   #item{
     padding: 100px 11% 100px;
     /* margin-top: -100px;*/
