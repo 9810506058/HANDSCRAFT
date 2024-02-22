@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
     $count=mysqli_num_rows($res);
     if($count==1){
         //user available and login success
-        $_SESSION['login']="<div class='success'>Login Successful.</div>";
+        $_SESSION['login']="<div class='success'>Login Successful </div>";
        $_SESSION['user']=$username;
        
        //redirect
