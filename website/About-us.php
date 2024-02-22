@@ -12,10 +12,10 @@
     <img src="https://picsum.photos/300" alt="">
     
     <br><br>
-<<<<<<< HEAD
+
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tempore.</p>
     
-=======
+
     <p>hellooooooooooooooooooooooooooooo myyyyyyyyyyyyy webpageeeeeeeeeeeeeeeee.</p>
 <p> hy my name is prashant</p>
     <!-- what people tell about us -->
