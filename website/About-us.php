@@ -13,6 +13,7 @@
     
     <br><br>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tempore.</p>
+    
     <!-- what people tell about us -->
     <section id="testimonials">
         <div class="container">
