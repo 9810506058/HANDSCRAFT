@@ -12,8 +12,12 @@
     <img src="https://picsum.photos/300" alt="">
     
     <br><br>
+<<<<<<< HEAD
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tempore.</p>
     
+=======
+    <p>hellooooooooooooooooooooooooooooo myyyyyyyyyyyyy webpageeeeeeeeeeeeeeeee.</p>
+>>>>>>> 1345ff8a607c2b70b69ab966e3fee82fcbb85a8a
     <!-- what people tell about us -->
     <section id="testimonials">
         <div class="container">
