@@ -1,4 +1,3 @@
-
 <?php
 include('../config/constant.php');
 
@@ -77,7 +76,8 @@ if(isset($_POST['submit'])){
     $count=mysqli_num_rows($res);
     if($count==1){
         //user available and login success
-        $_SESSION['login']="<div class='success'>Login Successful </div>";
+        $_SESSION['login']="<div class='success'> Welcome $username  ! You are logged in.</div>";
+
        $_SESSION['user']=$username;
        
        //redirect
