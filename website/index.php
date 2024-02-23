@@ -1,6 +1,15 @@
 <?php 
 include("partials-frontend/nav.php");
 ?>
+<?php
+
+if(isset($_SESSION['login'])){
+    
+    echo $_SESSION['login'];
+    unset($_SESSION['login']);
+
+}
+?>
 <div class="container">
   <div class="line" style="width: 100%; height: 2px; background-color: purple;"></div>
 </div>
@@ -69,7 +78,7 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
     <?php 
     //Getting items from Database that are active and featured
     //SQL Query
-    $sql2 = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes' LIMIT 4";
+    $sql2 = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes' LIMIT 3";
     //Execute the Query
     $res2 = mysqli_query($conn, $sql2);
     //Check whether items are available or not
