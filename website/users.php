@@ -79,7 +79,6 @@ if(isset($_POST['submit'])){
             $_SESSION['username'] = $username;
             $_SESSION['userId'] = $userId;
             header("Location: " . SITEURL . "index.php?loginsuccess=true");
-            
             exit();
         } else {
             header("Location: " . SITEURL . "index.php?loginsuccess=false");

@@ -31,7 +31,6 @@ include('config/constant.php');
     </div>
 </body>
 </html><?php
-include('config/db.php'); // Include your database connection file
 
 if(isset($_POST['submit'])){
     // Get the data from the registration form
