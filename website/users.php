@@ -52,42 +52,42 @@ include('./config/constant.php');
         </div>
     </div>
 </body>
-</html>
-<?php
-//check whether the submit button is clicked or not
+</html><?php
+// Start the session
+
+// Establish database connection (assuming $conn is defined elsewhere)
+// $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check whether the submit button is clicked or not
 if(isset($_POST['submit'])){
-    //process for login
-    //1.get the data from login form
-     echo"$username";
-    $username=$_POST['username'];
-    $password= md5(($_POST['password'])) ;
+    // Get the data from the login form
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
 
-    //2.sql query to check whether the user with username and password exists or not
+    // SQL query to check whether the user with username exists or not
+    $sql = "SELECT * FROM tbl_user WHERE username='$username'"; 
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
 
-    $sql="SELECT * FROM tbl_user WHERE username='$username' AND password='$password'";
-
-    //3.execute the query
-   
-    
-    $res=mysqli_query($conn,$sql);
-
-    //4.count rows to check whether the user exists or not
-    $count=mysqli_num_rows($res);
-    if($count==1){
-        //user available and login success
-        $_SESSION['login']="<div class='success'> Welcome $username  ! You are logged in.</div>";
-
-       $_SESSION['user']=$username;
-       
-       //redirect
-    
-       header('location:'.SITEURL.'index.php');
+    if ($num == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $userId = $row['id'];
+        
+        // Verify password
+        if ($password == $row['password']) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION['userId'] = $userId;
+            header("Location: " . SITEURL . "index.php?loginsuccess=true");
+            
+            exit();
+        } else {
+            header("Location: " . SITEURL . "index.php?loginsuccess=false");
+            exit();
+        }
+    } else {
+        header("Location: " . SITEURL . "index.php?loginsuccess=false");
+        exit();
     }
-
-else{
-    //user not available and login failed
-    $_SESSION['login']="<div class='error text-center'>Login Failed.</div>";
-    header("location: " . SITEURL . 'users.php');
-}
-}
+}    
 ?>
