@@ -45,7 +45,7 @@ require_once('partials/menu.php');
     </tr>
     </thead>
     <?php
-    // Assume $conn is your database connection
+   
     $sql = "SELECT * FROM tbl_item";
     $res = mysqli_query($conn, $sql);
 
@@ -87,7 +87,7 @@ require_once('partials/menu.php');
                 <td><?php echo htmlspecialchars($active); ?></td>
                 <td>
                     <a href="<?php echo SITEURL; ?>admin/update-item.php?id=<?php echo $id; ?>" class="btn btn-secondary">Update</a>
-                    <!-- Utilize FontAwesome if you're intending to use its icon -->
+                    <!-- Utilize FontAwesome  -->
                     <a href="#" onclick="confirmDelete('<?php echo SITEURL; ?>admin/delete-item.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>');">
                         <i class="fas fa-trash"></i>
                     </a>
