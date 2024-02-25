@@ -26,6 +26,7 @@ include('login-check.php');
             <li> <a href="manage-category.php"> category</a></li>
             <li> <a href="manage-item.php"> Item</a></li>
             <li> <a href="manage-order.php"> order</a></li>
+            <li> <a href="manage-user.php">users</a></li>
             <li> <a href="logout.php"> Logout</a></li>
           
         </ul>

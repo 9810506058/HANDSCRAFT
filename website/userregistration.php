@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
         $sql = "INSERT INTO tbl_user (username, email, address, password) VALUES ('$username', '$email', '$address', '$password')";
         $result = mysqli_query($conn, $sql);
         if($result){
-            header("Location: users.php?signup=success");
+            header("Location: userlogin.php?signup=success");
             exit();
         } else {
             header("Location: index.php?error=sqlerror");
