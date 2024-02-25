@@ -131,7 +131,7 @@ else{
       <!-- Search bar -->
       <!--login-->
       <li class="nav-item">
-        <a href="users.php" class="nav-link">Login</a>
+        <a href="userlogin.php" class="nav-link">Login</a>
       </li>
       <li class="nav-item">
         <a href="userlogout.php" class="nav-link">Logout</a>

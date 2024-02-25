@@ -9,6 +9,6 @@ unset($_SESSION["username"]);
 session_regenerate_id(true);
 
 
-header("Location: users.php");
+header("Location: userlogin.php");
 exit();
 ?>

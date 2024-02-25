@@ -6,6 +6,8 @@ include('./config/constant.php');
     <head></head>
     <title>login</title>
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
+
 
    
 
@@ -25,22 +27,14 @@ include('./config/constant.php');
         unset($_SESSION['login']);
 
     }
-    if(isset($_SESSION['failed-access'])){
-        
-        echo $_SESSION['failed-access'];
-        unset($_SESSION['failed-access']);
-
-    }
-  
-
     
-    if(isset($_SESSION['no-login-message'])){
+    if(isset($_SESSION['add'])){
         
-        echo $_SESSION['no-login-message'];
-        unset($_SESSION['no-login-message']);
+        echo $_SESSION['add'];
+        unset($_SESSION['add']);
 
     }
-
+    
     ?>
           <form action="" method="POST">
                 <input class="input-box" type="username" name="username" placeholder="Your username" required>
@@ -52,18 +46,23 @@ include('./config/constant.php');
         </div>
     </div>
 </body>
-</html><?php
-// Start the session
+</html>
+<?php
 
-// Establish database connection (assuming $conn is defined elsewhere)
-// $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check whether the submit button is clicked or not
 if(isset($_POST['submit'])){
     // Get the data from the login form
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    //use password hashing
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+   
 
+    if( empty($username) || empty($password)) {
+        $_SESSION['add'] = "<div class='error text-danger'>Fields must not be empty.</div>";
+        header("location: userlogin.php");
+        exit(); // Terminate script execution after redirect
+    } else {
     // SQL query to check whether the user with username exists or not
     $sql = "SELECT * FROM tbl_user WHERE username='$username'"; 
     $result = mysqli_query($conn, $sql);
@@ -78,15 +77,23 @@ if(isset($_POST['submit'])){
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['userId'] = $userId;
+            $_SESSION['login']= "<div class='success text-center text-success'>Welcome $username. You are logged in.</div>";
             header("Location: " . SITEURL . "index.php?loginsuccess=true");
+
             exit();
         } else {
-            header("Location: " . SITEURL . "index.php?loginsuccess=false");
+            header("Location: " . SITEURL . "userlogin.php?loginsuccess=false");
+            $_SESSION['login'] = "<div class='error text-center'style='color:red'>Incorrect password. Please try again.</div>";
             exit();
         }
     } else {
-        header("Location: " . SITEURL . "index.php?loginsuccess=false");
+        $_SESSION['login'] = "<div class='error text-center'style='color:red'>Username does not exist. Please try again.</div>";
+
+        header("Location: " . SITEURL . "userlogin.php?loginsuccess=false");
+
+
         exit();
     }
-}    
+} 
+}   
 ?>
