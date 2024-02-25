@@ -131,8 +131,10 @@ else{
       <!-- Search bar -->
       <!--login-->
       <li class="nav-item">
-        <a href="userlogin.php" class="nav-link">Login</a>
-      </li>
+      <?php
+echo '<button type="button" class="btn btn-success mx-2" data-toggle="modal" data-target="#loginModal">Login</button>';
+?>
+
       <li class="nav-item">
         <a href="userlogout.php" class="nav-link">Logout</a>
       </li>

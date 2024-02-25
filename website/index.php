@@ -119,7 +119,8 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
         echo "<a href='order.php?item_id=$id' class='btn btn-primary pt-2'>Add to cart</a>";
     } else {
         // User is not logged in
-        echo "<a href='users.php' class='btn btn-primary pt-2 ml-2'>Add to cart</a>";
+        echo '<button class="btn btn-primary my-2" data-toggle="modal" data-target="#loginModal">Add to Cart</button>';
+
     }
 ?>
 <a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary pl-2 ml-7   ">Quick View</a>
@@ -151,6 +152,7 @@ more items</a><a href="item.php" class="btn text-danger"><i class="fa-solid fa-a
        
 
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
 <?php include("partials-frontend/footer.php"); ?>
