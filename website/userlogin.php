@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
     // Get the data from the login form
     $username = $_POST['username'];
     //use password hashing
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password =md5($_POST['password']);
    
 
     if( empty($username) || empty($password)) {

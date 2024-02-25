@@ -53,7 +53,7 @@
                 <th>Username</th>
                 <th>Address</th>
                 <th>Actions</th>
-            </tr>
+            </tr>   
     </thead>
             <?php
             $sql = "SELECT * FROM tbl_user";
