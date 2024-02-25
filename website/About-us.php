@@ -16,13 +16,7 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tempore.</p>
     
 
-    <p>hellooooooooooooooooooooooooooooo myyyyyyyyyyyyy webpageeeeeeeeeeeeeeeee.</p>
-
-    <p>
-        hy my name is rico
-        hlo my name is aayusma
-    </p>
-<p> hy my name is shova</p>
+   
     <!-- what people tell about us -->
     <section id="testimonials">
         <div class="container">
