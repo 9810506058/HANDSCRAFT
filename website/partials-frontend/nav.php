@@ -131,9 +131,7 @@ else{
       <!-- Search bar -->
       <!--login-->
       <li class="nav-item">
-      <?php
-echo '<button type="button" class="btn btn-success mx-2" data-toggle="modal" data-target="#loginModal">Login</button>';
-?>
+      <a href="userlogin.php" class="nav-link">Login</a>
 
       <li class="nav-item">
         <a href="userlogout.php" class="nav-link">Logout</a>
@@ -146,9 +144,7 @@ echo '<button type="button" class="btn btn-success mx-2" data-toggle="modal" dat
 
   </div>
 </nav>
-<!-- Navbar End -->
 
-<?php include("loginmodal.php"); ?>
 
 
 
