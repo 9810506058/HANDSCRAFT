@@ -1,7 +1,35 @@
 <?php
+include('config/constant.php');
 
-// Your database connection and constant definitions
-include('./config/constant.php');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>login Form</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>login Window</h2>
+            <form method="post" action="">
+                <input class="input-box" type="text" name="username" placeholder="Your Name">
+              
+                <input class="input-box" type="password" name="password" placeholder="Your Password">
+                <label class="text-color-white">
+                   
+                <button class="secondary-btn"  type="submit" name="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html><?php
+
 
 // Your login logic
 if(isset($_POST['submit'])){
@@ -13,7 +41,7 @@ if(isset($_POST['submit'])){
         header("location: loginModal.php");
         exit();
     } else {
-        $sql = "SELECT * FROM tbl_user WHERE username='$username'";
+        $sql = "SELECT * FROM tbl_users WHERE username='$username'";
         $result = mysqli_query($conn, $sql);
         $num = mysqli_num_rows($result);
 

@@ -8,7 +8,7 @@ include('login-check.php');
     <title>
         Handscraft ordering system
     </title>
-    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>

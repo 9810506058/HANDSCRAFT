@@ -148,5 +148,7 @@ echo '<button type="button" class="btn btn-success mx-2" data-toggle="modal" dat
 </nav>
 <!-- Navbar End -->
 
+<?php include("loginmodal.php"); ?>
+
 
 

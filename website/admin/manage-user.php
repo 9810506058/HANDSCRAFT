@@ -41,7 +41,7 @@
         ?>
         <br>
         <br>
-        <a href="add-admin.php" class="btn-primary">Add user</a>
+        <a href="add-users.php" class="btn-primary">Add user</a>
         <br>
         <br>
         <br>
@@ -52,11 +52,12 @@
                 <th>S.N</th>
                 <th>Username</th>
                 <th>Address</th>
+                <th>Email</th>
                 <th>Actions</th>
             </tr>   
     </thead>
             <?php
-            $sql = "SELECT * FROM tbl_user";
+            $sql = "SELECT * FROM tbl_users";
             $res = mysqli_query($conn, $sql);
 
             if ($res == TRUE) {
@@ -68,11 +69,14 @@
                         $id = $rows['id'];
                         $username = $rows['username'];
                         $address = $rows['address'];
+                        $email= $rows['email'];
+
                         ?>
                         <tr>
                             <td><?php echo $sn++; ?></td>
                             <td><?php echo $username; ?></td>
                             <td><?php echo $address; ?></td>
+                            <td><?php echo $email; ?></td>
                             <td >
                             <a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>" class=" btn  btn-secondary">Update password</a>
 
