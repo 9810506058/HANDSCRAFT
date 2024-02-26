@@ -1,6 +1,7 @@
 <?php
 include('config/constant.php');
 
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +10,8 @@ include('config/constant.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
+    
     
     <title>login Form</title>
 </head>
@@ -17,6 +19,17 @@ include('config/constant.php');
     <div class="login-container">
         <div class="login-form">
             <h2>login Window</h2>
+            <?php
+            
+if (isset($_SESSION['add'])) {
+    echo $_SESSION['add'];
+    unset($_SESSION['add']);
+}
+if (isset($_SESSION['login'])) {
+    echo $_SESSION['login'];
+    unset($_SESSION['login']);
+}
+            ?>
             <form method="post" action="">
                 <input class="input-box" type="text" name="username" placeholder="Your Name">
               
@@ -38,7 +51,7 @@ if(isset($_POST['submit'])){
 
     if(empty($username) || empty($password)) {
         $_SESSION['add'] = "<div class='error text-danger'>Fields must not be empty.</div>";
-        header("location: loginModal.php");
+        header("location: userlogin.php");
         exit();
     } else {
         $sql = "SELECT * FROM tbl_users WHERE username='$username'";
@@ -58,12 +71,12 @@ if(isset($_POST['submit'])){
                 exit();
             } else {
                 $_SESSION['login'] = "<div class='error text-center' style='color:red'>Incorrect password. Please try again.</div>";
-                header("Location: " . SITEURL . "loginModal.php?loginsuccess=false");
+                header("Location: " . SITEURL . "userlogin.php?loginsuccess=false");
                 exit();
             }
         } else {
             $_SESSION['login'] = "<div class='error text-center' style='color:red'>Username does not exist. Please try again.</div>";
-            header("Location: " . SITEURL . "loginModal.php?loginsuccess=false");
+            header("Location: " . SITEURL . "userlogin.php?loginsuccess=false");
             exit();
         }
     } 
