@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
        
        //redirect
     
-       header('location:'.SITEURL.'/');
+       header('location:'.SITEURL.'');
     }
 
 else{
