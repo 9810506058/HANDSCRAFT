@@ -14,6 +14,9 @@
     text-align: center;
 
 }
+.txt-success{
+    color: green;
+}
 .clearfix{
     float:none;
     clear:both;

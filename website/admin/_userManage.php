@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST["username"];
         $email = $_POST["email"];
         $phone = $_POST["phone"];
-        $userType = $_POST["userType"];
+ 
         $password = $_POST["password"];
         
         // Check whether this username exists
@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         else{
           
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO `tbl_users` ( `username`, `email`, `phone`, `userType`, `password`, `joinDate`) VALUES ('$username','$email', '$phone', '$userType', '$hash', current_timestamp())";   
+                $sql = "INSERT INTO `tbl_users` ( `username`, `email`, `phone`,  `password`, `joinDate`) VALUES ('$username','$email', '$phone', '$hash', current_timestamp())";   
                 $result = mysqli_query($conn, $sql);
                 if ($result){
                     echo "<script>alert('Success');
@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $phone = $_POST["phone"];
         $userType = $_POST["userType"];
 
-        $sql = "UPDATE `tbl_users` SET `username` = '$username', `email`='$email', `phone`='$phone', `userType`='$userType' WHERE `id`='$id'";
+        $sql = "UPDATE `tbl_users` SET `username` = '$username', `email`='$email', `phone`='$phone' WHERE `id`='$id'";
         $result = mysqli_query($conn, $sql);
         if ($result){
             echo "<script>alert('update successfully');
