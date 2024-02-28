@@ -30,7 +30,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </script>";
         }
         else{
-                
+          
+                $hash = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "INSERT INTO `tbl_users` ( `username`, `email`, `phone`, `userType`, `password`, `joinDate`) VALUES ('$username','$email', '$phone', '$userType', '$hash', current_timestamp())";   
                 $result = mysqli_query($conn, $sql);
                 if ($result){
@@ -42,9 +43,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             window.location=document.referrer;
                         </script>";
                 }
-            }
-           
-        
+            
+        }
+    }
+    if(isset($_POST['editUser'])) {
+        $id = $_POST["userId"];
+        $username= $_POST["username"];
+        $email = $_POST["email"];
+        $phone = $_POST["phone"];
+        $userType = $_POST["userType"];
+
+        $sql = "UPDATE `tbl_users` SET 'username' = '$username', `email`='$email', `phone`='$phone', `userType`='$userType' WHERE `id`='$id'";   
+        $result = mysqli_query($conn, $sql);
+        if ($result){
+            echo "<script>alert('update successfully');
+                window.location=document.referrer;
+                </script>";
+        }
+        else {
+            echo "<script>alert('failed');
+                window.location=document.referrer;
+                </script>";
+        }
     }
     
    

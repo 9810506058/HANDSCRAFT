@@ -5,11 +5,11 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<div class="container-fluid" style="margin-top:98px">
+<div class="container-fluid" style="margin-top:50px">
 	
 	<div class="row">
         <div class="col-lg-12">
-            <button class="btn btn-primary float-right btn-sm" data-toggle="modal" data-target="#newUser"><i class="fa fa-plus"></i> New user</button>
+            <button class="btn btn-primary float-left btn-sm mx-3" data-toggle="modal" data-target="#newUser"><i class="fa fa-plus"></i> New user</button>
         </div>
 	</div>
 	    <br>
@@ -17,7 +17,7 @@
 		<div class="card col-lg-12">
 			<div class="card-body">
 				<table class="table-striped table-bordered col-md-12 text-center">
-                    <thead style="background-color: rgb(111 202 203);">
+                <thead class="table-danger">
                         <tr>
                             <th>UserId</th>
                             <th>Username</th>
@@ -151,26 +151,7 @@
         </button>
       </div>
         <div class="modal-body">
-            
-            <div class="text-left my-2 row" style="border-bottom: 2px solid #dee2e6;">
-                <div class="form-group col-md-8">
-                    <form action="_userManage.php" method="post" enctype="multipart/form-data">
-                        <b><label for="image">Profile Picture</label></b>
-                        <input type="file" name="userimage" id="userimage" accept=".jpg" class="form-control" required style="border:none;">
-                        <small id="Info" class="form-text text-muted mx-3">Please .jpg file upload.</small>
-                        <input type="hidden" id="userId" name="userId" value="<?php echo $Id; ?>">
-                        <button type="submit" class="btn btn-success mt-3" name="updateProfilePhoto">Update Img</button>
-                    </form>         
-                </div>
-                <div class="form-group col-md-4">
-                    <img src="/OnlinePizzaDelivery/img/person-<?php echo $Id; ?>.jpg" alt="Profile Photo" width="100" height="100" onError="this.src ='/OnlinePizzaDelivery/img/profilePic.jpg'">
-                    <form action="_userManage.php" method="post">
-                        <input type="hidden" id="userId" name="userId" value="<?php echo $Id; ?>">
-                        <button type="submit" class="btn btn-success mt-2" name="removeProfilePhoto">Remove Img</button>
-                    </form>
-                </div>
-            </div>
-            
+                
             <form action="_userManage.php" method="post">
                 <div class="form-group">
                     <b><label for="username">Username</label></b>
