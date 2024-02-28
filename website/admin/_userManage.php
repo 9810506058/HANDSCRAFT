@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $phone = $_POST["phone"];
         $userType = $_POST["userType"];
 
-        $sql = "UPDATE `tbl_users` SET 'username' = '$username', `email`='$email', `phone`='$phone', `userType`='$userType' WHERE `id`='$id'";   
+        $sql = "UPDATE `tbl_users` SET `username` = '$username', `email`='$email', `phone`='$phone', `userType`='$userType' WHERE `id`='$id'";
         $result = mysqli_query($conn, $sql);
         if ($result){
             echo "<script>alert('update successfully');

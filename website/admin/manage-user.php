@@ -155,7 +155,7 @@
             <form action="_userManage.php" method="post">
                 <div class="form-group">
                     <b><label for="username">Username</label></b>
-                    <input class="form-control" id="username" name="username" value="<?php echo $name; ?>" type="text" disabled>
+                    <input class="form-control" id="username" name="username" value="<?php echo $name; ?>" type="text" >
                 </div>
                
                 <div class="form-group">
