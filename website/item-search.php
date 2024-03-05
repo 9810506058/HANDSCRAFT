@@ -36,7 +36,7 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
                             echo "<div class='error text-danger text-center'>Image not Available.</div>";
                         } else {
                         ?>
-                            <img src="<?php echo SITEURL; ?>images/Item/<?php echo $image_name; ?>" class="card-img-top" alt="Food Image" style="height: 300px";>
+                            <img src="<?php echo SITEURL; ?>images/Item/<?php echo $image_name; ?>" class="card-img-top" alt="Handscraft Image" style="height: 300px";>
                         <?php
                         }
                         ?>
