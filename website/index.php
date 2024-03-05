@@ -142,7 +142,7 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
 <div class="clearfix"></div>
 <p class="text-center text-danger">
 
-<a href="items.php" class="text-danger" style="text-decoration: none;" >
+<a href="item.php" class="text-danger" style="text-decoration: none;" >
 more items</a><a href="item.php" class="btn text-danger"><i class="fa-solid fa-arrow-down"></i></a>
 
 

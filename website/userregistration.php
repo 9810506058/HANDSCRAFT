@@ -19,6 +19,8 @@ include('config/constant.php');
                 <input class="input-box" type="text" name="username" placeholder="Your Name">
                 <input class="input-box" type="email" name="email" placeholder="Your Email Address">
                 <input class="input-box" type="text" name="address" placeholder="Your Address">
+                <input type="tel" class="input-box" id="phone" name="phone" placeholder="Enter Phone No" required pattern="[0-9]{10}" maxlength="10">
+
                 <input class="input-box" type="password" name="password" placeholder="Your Password">
                 <label class="text-color-white">
                     <input type="checkbox">
@@ -38,6 +40,7 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $address = $_POST['address'];
     $password = md5($_POST['password']); // Note: Consider using stronger password hashing methods like bcrypt
+    $phone=$_POST['phone'];
 
     // Check if the username already exists
     $sql = "SELECT * FROM tbl_users WHERE username='$username'";
@@ -48,7 +51,7 @@ if(isset($_POST['submit'])){
         exit();
     } else {
         // Insert the user data into the database
-        $sql = "INSERT INTO tbl_users (username, email, address, password) VALUES ('$username', '$email', '$address', '$password')";
+        $sql = "INSERT INTO tbl_users (username, email, address, password ,phone) VALUES ('$username', '$email', '$address', '$password', '$phone')";
         $result = mysqli_query($conn, $sql);
         if($result){
             header("Location: userlogin.php?signup=success");
