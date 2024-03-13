@@ -116,14 +116,14 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
    <?php
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         // User is logged in
-        echo "<a href='order.php?item_id=$id' class='btn btn-primary pt-2'>Add to cart</a>";
+        echo "<a href='order.php?item_id=$id' class='btn btn-primary '>Add to cart</a>";
     } else {
         // User is not logged in
-        echo '<button class="btn btn-primary my-2" data-toggle="modal" data-target="#loginModal">Add to Cart</button>';
+        echo "<a href='userlogin.php' class='btn btn-primary'>Add to cart</a>";
 
     }
 ?>
-<a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary pl-2 ml-7   ">Quick View</a>
+<a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary   ">Quick View</a>
 </div>
 </div>
 </div>

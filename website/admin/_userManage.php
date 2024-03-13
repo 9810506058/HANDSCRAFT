@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $phone = $_POST["phone"];
  
-        $password = md5($_POST['password']);
+        $password = md5($_POST['password']); 
         
         // Check whether this username exists
         $existSql = "SELECT * FROM `tbl_users` WHERE username = '$username'";
