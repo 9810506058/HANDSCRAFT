@@ -113,16 +113,7 @@ more categories </a><a href="categories.php" class="btn text-danger"><i class="f
     <p class="text-center text-danger"> Rs <?php echo $price ?> </p>
     <p class="text-center text-danger"> <?php echo $sub_description?></p>
     <!-- Check if the user is logged in -->
-   <?php
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-        // User is logged in
-        echo "<a href='order.php?item_id=$id' class='btn btn-primary '>Add to cart</a>";
-    } else {
-        // User is not logged in
-        echo "<a href='userlogin.php' class='btn btn-primary'>Add to cart</a>";
-
-    }
-?>
+  <a href="order.php ?item_id='<?php echo $id; ?>'" class="btn btn-primary text-center">add to cart</a>
 <a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary   ">Quick View</a>
 </div>
 </div>
