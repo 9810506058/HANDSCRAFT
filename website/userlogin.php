@@ -66,7 +66,7 @@ if(isset($_POST['submit']))
     //2. create a connection to
 
     //3. write a query to check whether the user with username and password exists or not
-    $sql = "SELECT * FROM tbl_users WHERE username='$username' AND password='$password'";
+    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 
     //4. execute the query
     $res = mysqli_query($conn, $sql);

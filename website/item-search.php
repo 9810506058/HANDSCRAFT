@@ -22,7 +22,7 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
         $res = mysqli_query($conn, $sql);
         if ($res && mysqli_num_rows($res) > 0) {
             while ($row = mysqli_fetch_assoc($res)) {
-                $id = $row['id'];
+                $id = $row['item_id'];
                 $title = $row['title'];
                 $price = $row['price'];
                 $description = $row['description'];

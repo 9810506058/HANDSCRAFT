@@ -81,7 +81,7 @@
                                 echo '
 
                                 
-                                            <td>' . $price . '</td>
+                                            <td>.'. $price . '</td>
                                             <td>
                                                 <form id="frm' . $itemId . '">
                                                     <input type="hidden" name="itemId" value="' . $itemId . '">

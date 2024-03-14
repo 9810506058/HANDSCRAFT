@@ -1,4 +1,16 @@
-<?php include('partials-frontend/nav.php'); ?>
+<?php
+include("partials-frontend/nav.php");
+
+// Initialize an empty variable to store the category title
+$categoryTitle = "";
+
+?>
+
+<html>
+<head>
+    <title><?php echo $categoryTitle; ?></title>
+</head>
+<body>
 
 <?php 
 //Check whether id is passed or not
@@ -15,6 +27,8 @@ if(isset($_GET['category_id'])) {
     $row = mysqli_fetch_assoc($res);
     //Get the Title
     $category_title = $row['title'];
+    //Set the Category Title in Variable
+    $categoryTitle = $category_title;
 } else {
     //Category not passed
     //Redirect to Home page

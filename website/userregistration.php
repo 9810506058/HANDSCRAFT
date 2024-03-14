@@ -41,9 +41,10 @@ if(isset($_POST['submit'])){
     $address = $_POST['address'];
     $password = md5($_POST['password']); // Note: Consider using stronger password hashing methods like bcrypt
     $phone=$_POST['phone'];
+    
 
     // Check if the username already exists
-    $sql = "SELECT * FROM tbl_users WHERE username='$username'";
+    $sql = "SELECT * FROM users WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck > 0){
@@ -51,7 +52,7 @@ if(isset($_POST['submit'])){
         exit();
     } else {
         // Insert the user data into the database
-        $sql = "INSERT INTO tbl_users (username, email, address, password ,phone) VALUES ('$username', '$email', '$address', '$password', '$phone')";
+        $sql = "INSERT INTO users (username, email, address, password ,phone) VALUES ('$username', '$email', '$address', '$password', '$phone')";
         $result = mysqli_query($conn, $sql);
         if($result){
             header("Location: userlogin.php?signup=success");
