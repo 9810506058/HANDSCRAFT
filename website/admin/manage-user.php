@@ -31,7 +31,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            $sql = "SELECT * FROM tbl_users"; 
+                            $sql = "SELECT * FROM users"; 
                             $result = mysqli_query($conn, $sql);
                             $sn = 1;
                             
@@ -113,7 +113,7 @@
 </div>
 
 <?php 
-    $usersql = "SELECT * FROM `tbl_users`";
+    $usersql = "SELECT * FROM `users`";
     $userResult = mysqli_query($conn, $usersql);
     while($userRow = mysqli_fetch_assoc($userResult)){
         $Id = $userRow['id'];

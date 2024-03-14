@@ -27,7 +27,7 @@
             </div>
             <div class="col-lg-8">
                 <div class="card wish-list mb-3">
-                    <table class="table text-center">
+                    <table class="table text-center" >
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">No.</th>
@@ -42,7 +42,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             <?php
                                 $sql = "SELECT * FROM `viewcart` WHERE `userId`= $userId";
                                 $result = mysqli_query($conn, $sql);
@@ -72,7 +72,7 @@
                                 
                                 if ($image != "") {
                                     // Use SITEURL for consistency
-                                    echo "<img src='" . SITEURL . "images/item/" . htmlspecialchars ($image) . "' width='50px'>";
+                                    echo "<img src='" . SITEURL . "images/item/" . htmlspecialchars ($image) . "' width='100px'>";
                                 } else {
                                     echo "<div class='text-danger'>Image not added</div>";
                                 }

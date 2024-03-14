@@ -51,7 +51,7 @@ include('partials/menu.php');
                 if ($res) {
                     $sn = 1;
                     while ($row = mysqli_fetch_assoc($res)) {
-                        $id = $row['id'];
+                        $id = $row['categoryId'];
                         $title = $row['title'];
                         $image_name = $row['image_name'];
                         $featured = $row['featured'];

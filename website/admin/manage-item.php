@@ -52,7 +52,7 @@ require_once('partials/menu.php');
     if ($res) {
         $sn = 1;
         while ($rows = mysqli_fetch_assoc($res)) {
-            $id = $rows['id'];
+            $id = $rows['itemId'];
             $title = $rows['title'];
             $price = $rows["price"];
             $image_name = $rows['image_name'];
@@ -74,7 +74,7 @@ require_once('partials/menu.php');
                 ?></td>
                 <td><?php 
                     // Fetch and display category correctly
-                    $sql2 = "SELECT * FROM tbl_category WHERE id = {$rows['category_id']}";
+                    $sql2 = "SELECT * FROM tbl_category WHERE categoryId = {$rows['category_id']}";
                     $res2 = mysqli_query($conn, $sql2);
                     if ($res2 && mysqli_num_rows($res2) > 0) {
                         $row2 = mysqli_fetch_assoc($res2);
