@@ -5,7 +5,6 @@ include('./config/constant.php');
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
   $loggedin= true;
   $userId = $_SESSION['userId'];
-  $username = $_SESSION['username'];
 }
 else{
   $loggedin = false;
@@ -70,7 +69,7 @@ else{
         $count = mysqli_num_rows($res);
         if ($count > 0) {
             while ($row = mysqli_fetch_assoc($res)) {
-                $id = $row['id'];
+                $id = $row['categoryId'];
                 $title = $row['title'];
                 // Modify the href attribute to redirect to viewitem.php with category ID as a parameter
                 echo '<li><a class="dropdown-item" href="category-items.php?category_id=' . $id . '">' . $title . '</a></li>';
@@ -95,7 +94,7 @@ else{
         $count = mysqli_num_rows($res);
         if ($count > 0) {
             while ($row = mysqli_fetch_assoc($res)) {
-                $id = $row['id'];
+                $id = $row['itemId'];
                 $title = $row['title'];
 
                 // Modify the href attribute to redirect to viewitem.php with category ID as a parameter
@@ -114,7 +113,7 @@ else{
       
       
       <li class="nav-item">
-        <a href="add-to-cart.php" class="nav-link"> Cart <i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="order.php" class="nav-link"> Cart <i class="fa-solid fa-cart-shopping"></i></a>
       </li>
       &nbsp;  &nbsp; &nbsp;
       <li>

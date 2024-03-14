@@ -17,7 +17,7 @@ include("partials-frontend/nav.php");
         //Categories Available
         while ($row = mysqli_fetch_assoc($res)) {
             //Get the Values
-            $id = $row['id'];
+            $id = $row['categoryId'];
             $title = $row['title'];
             $image_name = $row['image_name'];
     ?>

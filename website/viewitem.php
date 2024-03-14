@@ -13,13 +13,13 @@ if(isset($_GET['item_id'])) {
     
     
     // Query to fetch item details based on item ID
-    $sql = "SELECT * FROM tbl_item WHERE id = $item_id";
+    $sql = "SELECT * FROM tbl_item WHERE itemId = $item_id";
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) > 0) {
         // Item found, display its details
         $row = mysqli_fetch_assoc($result);
-        $id = $row['id'];
+        $id = $row['itemId'];
         $title = $row['title'];
         $description = $row['description'];
         $price = $row['price'];
@@ -50,7 +50,22 @@ if(isset($_GET['item_id'])) {
                             <h5 class="card-title"><?php echo $title; ?></h5>
                             <p class="card-text">Rs <?php echo $price; ?></p>
                             <p class="card-text"><?php echo $description; ?></p>
-                            <a href="<?php echo SITEURL; ?>order.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
+                            <?php
+                  
+                  
+                  $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'"; 
+                  $quaresult = mysqli_query($conn, $quaSql);
+                  $quaExistRows = mysqli_num_rows($quaresult);
+                  if($quaExistRows == 0) {
+                      echo '<form action="_manageCart.php" method="POST">
+                            <input type="hidden" name="itemId" value="'.$id. '">
+                            <button type="submit" name="addToCart" class="btn btn-primary my-2 ">Add to Cart</button>';
+                  } else {
+                      echo '<a href="order.php"><button class="btn btn-success mx-2">Go to Cart</button></a>';
+                  }
+              
+              echo '</form>';
+              ?>
                         </div>
                     </div>
                 </div>

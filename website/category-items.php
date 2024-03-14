@@ -6,7 +6,7 @@ if(isset($_GET['category_id'])) {
     //Category id is set and get the id
     $category_id = $_GET['category_id'];
     // Get the Category Title Based on Category ID
-    $sql = "SELECT title FROM tbl_category WHERE id=$category_id";
+    $sql = "SELECT title FROM tbl_category WHERE categoryId=$category_id";
 
     //Execute the Query
     $res = mysqli_query($conn, $sql);
@@ -38,7 +38,7 @@ if(isset($_GET['category_id'])) {
         if($count2 > 0) {
             //Item is Available
             while($row2 = mysqli_fetch_assoc($res2)) {
-                $id = $row2['id'];
+                $id = $row2['itemId'];
                 $title = $row2['title'];
                 $price = $row2['price'];
                 $description = $row2['description'];
@@ -62,7 +62,22 @@ if(isset($_GET['category_id'])) {
                     <p >Rs <?php echo $price; ?></p>
                   
                     <br>
-                    <a href="<?php echo SITEURL; ?>order.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
+                    <?php
+                  
+                  
+                  $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'"; 
+                  $quaresult = mysqli_query($conn, $quaSql);
+                  $quaExistRows = mysqli_num_rows($quaresult);
+                  if($quaExistRows == 0) {
+                      echo '<form action="_manageCart.php" method="POST">
+                            <input type="hidden" name="itemId" value="'.$id. '">
+                            <button type="submit" name="addToCart" class="btn btn-primary my-2 ">Add to Cart</button>';
+                  } else {
+                      echo '<a href="order.php"><button class="btn btn-success mx-2">Go to Cart</button></a>';
+                  }
+              
+              echo '</form>';
+              ?>
                     <a href="<?php echo SITEURL; ?>viewitem.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Quick view</a>
                     
                     

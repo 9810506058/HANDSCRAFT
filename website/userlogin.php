@@ -73,12 +73,15 @@ if(isset($_POST['submit']))
 
     //5. count rows to check whether the user exists or not
     $count = mysqli_num_rows($res);
+    $userId = mysqli_fetch_assoc($res)['id'];
 
     if($count==1)
     {
         //user available and login success
         $_SESSION['login'] = "<div class='success'> welcome $username Login Successful.</div>";
         $_SESSION['user'] = $username;  //to check whether the user is logged in or not and logout will unset it
+        $_SESSION['loggedin'] = true;
+        $_SESSION['userId'] = $userId;
 
         //redirect
         header('location:'.SITEURL.'');

@@ -17,7 +17,7 @@ include("partials-frontend/nav.php");
         //Items Available
         while ($row = mysqli_fetch_assoc($res)) {
             //Get the Values
-            $id = $row['id'];
+            $id = $row['itemId'];
             $title = $row['title'];
             $description = $row['description'];
             $price = $row['price'];
@@ -41,9 +41,23 @@ include("partials-frontend/nav.php");
                   <h3><?php echo $title;?></h3>
                   <h6></h6>
                   <p class="text-danger"> Rs <?php echo $price;?></p>
-                 
-                    <a href="<?php echo SITEURL; ?>order.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
-                    <a href="<?php echo SITEURL; ?>viewitem.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Quick view</a>
+                 <?php
+                  
+                  
+                  $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'"; 
+                  $quaresult = mysqli_query($conn, $quaSql);
+                  $quaExistRows = mysqli_num_rows($quaresult);
+                  if($quaExistRows == 0) {
+                      echo '<form action="_manageCart.php" method="POST">
+                            <input type="hidden" name="itemId" value="'.$id. '">
+                            <button type="submit" name="addToCart" class="btn btn-primary my-2 ">Add to Cart</button>';
+                  } else {
+                      echo '<a href="order.php"><button class="btn btn-success mx-2">Go to Cart</button></a>';
+                  }
+              
+              echo '</form>';
+              ?>
+              <a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary  pt-2">Quick View</a>
                 </div>
               </div>
             </div>
