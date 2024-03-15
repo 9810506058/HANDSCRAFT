@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2024 at 10:18 AM
+-- Generation Time: Mar 15, 2024 at 05:47 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,7 +49,7 @@ INSERT INTO `tbl_admin` (`id`, `full_name`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `tbl_category` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `categoryId` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
   `image_name` varchar(255) NOT NULL,
   `featured` varchar(10) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `tbl_category` (
 -- Dumping data for table `tbl_category`
 --
 
-INSERT INTO `tbl_category` (`id`, `title`, `image_name`, `featured`, `active`) VALUES
+INSERT INTO `tbl_category` (`categoryId`, `title`, `image_name`, `featured`, `active`) VALUES
 (21, 'bag', 'item_Category_631.jpg', 'Yes', 'Yes'),
 (22, 'canva_messi', 'item_Category_609.jpg', 'Yes', 'Yes'),
 (23, 'buddha_Canva', 'item_Category_172.png', 'Yes', 'Yes'),
@@ -74,7 +74,7 @@ INSERT INTO `tbl_category` (`id`, `title`, `image_name`, `featured`, `active`) V
 --
 
 CREATE TABLE `tbl_item` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `itemId` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` longtext NOT NULL,
   `sub_description` longtext NOT NULL,
@@ -89,12 +89,13 @@ CREATE TABLE `tbl_item` (
 -- Dumping data for table `tbl_item`
 --
 
-INSERT INTO `tbl_item` (`id`, `title`, `description`, `sub_description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
+INSERT INTO `tbl_item` (`itemId`, `title`, `description`, `sub_description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
 (34, 'wall canva', 'this canva is specially designed to  furnish the  meeting room and it is specially handmade', 'enhance the ambiance of your room', 1050.00, 'item-Name-9372.png', 22, 'Yes', 'Yes'),
 (35, 'buddha wall poster', 'description here', 'peaceful', 1040.00, 'item-Name-7669.png', 23, 'Yes', 'Yes'),
 (36, 'woolen bags', 'a pure woolean bag ', ' handmade bag', 450.00, 'item-Name-8982.jpg', 21, 'Yes', 'Yes'),
 (37, 'vandina ko item', 'j lekda ne hunxa', 'nalekda ne hunxa', 100.00, 'item-Name-5552.png', 24, 'Yes', 'Yes'),
-(39, 'ornaments', 'a special type of the  ornament made by the precious metal', 'unisex ornaments', 2400.00, 'item-Name-4551.jpg', 26, 'Yes', 'Yes');
+(39, 'ornaments', 'a special type of the  ornament made by the precious metal', 'unisex ornaments', 2400.00, 'item-Name-4551.jpg', 26, 'Yes', 'Yes'),
+(40, 'Mr.', 'this is a comment', 'this is a comment', 4500.00, '', 21, 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -119,25 +120,31 @@ CREATE TABLE `tbl_order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `tbl_users` (
+CREATE TABLE `users` (
   `id` int(21) NOT NULL,
   `username` varchar(21) NOT NULL,
+  `firstName` varchar(21) NOT NULL,
+  `lastName` varchar(21) NOT NULL,
   `email` varchar(35) NOT NULL,
   `phone` bigint(20) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `joinDate` datetime NOT NULL DEFAULT current_timestamp(),
-  `address` varchar(200) NOT NULL
+  `joinDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `tbl_users` (`id`, `username`, `email`, `phone`, `password`, `joinDate`, `address`) VALUES
-(17, 'eshu', 'eshu@gmail.com', 9810506058, '25f9e794323b453885f5181f1b624d0b', '2024-03-13 14:27:10', 'itahari');
+INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `email`, `phone`, `password`, `joinDate`) VALUES
+(1, 'admin', 'admin', 'admin', 'admin@gmail.com', 1111111111, '$2y$10$AAfxRFOYbl7FdN17rN3fgeiPu/xQrx6MnvRGzqjVHlGqHAM4d9T1i', '2021-04-11 11:40:58'),
+(2, 'prashant', 'happy', 'vandina', 'prashant@gmail.com', 1050050505, '$2y$10$oQea3tt9XZvadRKpAGftI.XQ8X1WUKGYp9HsH0xx5y4AAzyEuL8BS', '2024-02-26 12:41:51'),
+(3, 'prashant11', 'happy', 'customer', 'prashant@gmail.com', 1050050505, '$2y$10$AvugEpV4ddSXqmZhpkQhVOnx/1YZpA5QAACy70LNnfbnnI9vDTF4y', '2024-03-15 01:22:49'),
+(4, 'enjal', 'my first name', 'customer', 'me@mydomain.com', 1234566691, '$2y$10$xpZUUs12J3QyFAmo0EBy.e/HKIewAZ/USvJFzXeSitK3fG0hfVBSa', '2024-03-15 01:27:39'),
+(5, 'enjal11', 'my first name', 'customer', 'me@mydomain.com', 1234566691, '$2y$10$AxTQyI6wdwFys9dPBgQcNOVF45Ii1rmSde4UPXaXsPb7EjCvpxFpS', '2024-03-15 01:30:42'),
+(6, 'enjal112', 'my first name', 'customer', 'me@mydomain.com', 1234566691, '$2y$10$CdcYP.Qh7HUfWxfLu86Om.nU6lqAkBOETLqJ2J4I8HVHLVOR.YhbC', '2024-03-15 01:31:25');
 
 -- --------------------------------------------------------
 
@@ -147,7 +154,7 @@ INSERT INTO `tbl_users` (`id`, `username`, `email`, `phone`, `password`, `joinDa
 
 CREATE TABLE `viewcart` (
   `cartItemId` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
+  `itemId` int(11) NOT NULL,
   `itemQuantity` int(100) NOT NULL,
   `userId` int(11) NOT NULL,
   `addedDate` datetime NOT NULL DEFAULT current_timestamp()
@@ -157,13 +164,11 @@ CREATE TABLE `viewcart` (
 -- Dumping data for table `viewcart`
 --
 
-INSERT INTO `viewcart` (`cartItemId`, `item_id`, `itemQuantity`, `userId`, `addedDate`) VALUES
-(2, 42, 1, 4, '2024-03-13 11:49:39'),
-(3, 43, 1, 4, '2024-03-13 11:49:40'),
-(4, 44, 1, 4, '2024-03-13 11:49:42'),
-(5, 39, 1, 4, '2024-03-13 13:03:53'),
-(6, 37, 1, 4, '2024-03-13 13:22:26'),
-(7, 36, 1, 4, '2024-03-13 13:22:27');
+INSERT INTO `viewcart` (`cartItemId`, `itemId`, `itemQuantity`, `userId`, `addedDate`) VALUES
+(42, 35, 1, 0, '2024-03-15 08:34:38'),
+(43, 35, 1, 4, '2024-03-15 09:48:05'),
+(44, 34, 1, 4, '2024-03-15 09:55:13'),
+(45, 34, 1, 0, '2024-03-15 10:05:21');
 
 --
 -- Indexes for dumped tables
@@ -179,13 +184,13 @@ ALTER TABLE `tbl_admin`
 -- Indexes for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`categoryId`);
 
 --
 -- Indexes for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`itemId`);
 
 --
 -- Indexes for table `tbl_order`
@@ -194,9 +199,9 @@ ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_users`
+-- Indexes for table `users`
 --
-ALTER TABLE `tbl_users`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `username` (`username`);
 
@@ -220,13 +225,13 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `categoryId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `itemId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
@@ -235,16 +240,16 @@ ALTER TABLE `tbl_order`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_users`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `tbl_users`
-  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+ALTER TABLE `users`
+  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `viewcart`
 --
 ALTER TABLE `viewcart`
-  MODIFY `cartItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cartItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
