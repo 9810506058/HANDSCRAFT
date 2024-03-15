@@ -6,7 +6,7 @@
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
         // SQL Query to get selected item
-        $sql2 = "SELECT * FROM tbl_item WHERE id=$id";
+        $sql2 = "SELECT * FROM tbl_item WHERE itemId=$id";
         $res2 = mysqli_query($conn, $sql2);
 
         if($res2) {
@@ -34,7 +34,7 @@
     // Check if the form is submitted
     if(isset($_POST['submit'])) {
         // Retrieve form data
-        $id = $_POST['id'];
+        $id = $_POST['itemId'];
         $title = $_POST['title'];
         $description = $_POST['description'];
         $sub_description = $_POST['sub_description'];

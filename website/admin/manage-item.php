@@ -67,7 +67,7 @@ require_once('partials/menu.php');
                 <td><?php 
                     if ($image_name != "") {
                         // Use SITEURL for consistency
-                        echo "<img src='" . SITEURL . "images/item/" . htmlspecialchars($image_name) . "' width='100px'>";
+                        echo "<img src='" . SITEURL . "images/item/" . htmlspecialchars($image_name) . "' width='10w0px' height='50px'>";
                     } else {
                         echo "<div class='error'>Image not added</div>";
                     }

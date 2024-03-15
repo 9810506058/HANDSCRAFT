@@ -21,7 +21,7 @@ if($remove==false ){
 
 }
 //delete from database
-$sql = "DELETE FROM tbl_item WHERE id = $id";
+$sql = "DELETE FROM tbl_item WHERE itemId = $id";
 $res = mysqli_query($conn, $sql);
 if ($res) {
     //redirect

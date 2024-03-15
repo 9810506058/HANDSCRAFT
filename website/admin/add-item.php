@@ -117,7 +117,7 @@ if(isset($_POST['submit'])) {
                                     while($row=mysqli_fetch_assoc($res))
                                     {
                                         //get the details of categories
-                                        $id = $row['id'];
+                                        $id = $row['categoryId'];
                                         $title = $row['title'];
 
                                         ?>

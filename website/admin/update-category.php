@@ -10,7 +10,7 @@
         <?php 
         if(isset($_GET['id'])) {
             $id = $_GET['id'];
-            $sql = "SELECT * FROM tbl_category WHERE id=$id";
+            $sql = "SELECT * FROM tbl_category WHERE categoryId=$id";
             $res = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($res) == 1) {
@@ -78,7 +78,7 @@
 
         <?php 
         if(isset($_POST['submit'])) {
-            $id = $_POST['id'];
+            $id = $_POST['categoryId'];
             $title = $_POST['title'];
             $current_image = $_POST['current_image'];
             $featured = isset($_POST['featured']) ? $_POST['featured'] : "No";
@@ -117,7 +117,7 @@
                 image_name = '$image_name',
                 featured = '$featured',
                 active = '$active' 
-                WHERE id=$id
+                WHERE categoryId=$id
             ";
 
             $res2 = mysqli_query($conn, $sql2);
