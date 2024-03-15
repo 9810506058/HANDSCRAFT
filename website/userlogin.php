@@ -76,12 +76,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             exit();
         } 
         else{
-          
-            header("location:'.SITEURL.'userlogin.php?loginsuccess=false");
+            $_SESSION['failed-access']="<div class='error' style='font-size : 18px'> login failed.</div>";
+            header('location:'.SITEURL.'userlogin.php?loginsuccess=false');
         }
     } 
     else{
-        header("location:'.SITEURL.'userlogin.php?loginsuccess=false");
+        $_SESSION['failed-access']="<div class='error' style='font-size : 18px'> login failed please try again.</div>";
+        header('location:'.SITEURL.'userlogin.php?loginsuccess=false');
     }
 }    
 ?>
