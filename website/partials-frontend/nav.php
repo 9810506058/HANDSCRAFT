@@ -38,7 +38,7 @@ else{
 <body>
  
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-sm justify-content-center " id="navbar">
+<nav class="navbar navbar-expand-lg justify-content-center " id="navbar">
   <a href="index.php" class="navbar-brand" id="logo"><img src="./images/logo.jpg" alt=""></a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
     <span><i class="fa-solid fa-bars"></i></span>

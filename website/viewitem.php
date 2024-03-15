@@ -53,19 +53,24 @@ if(isset($_GET['item_id'])) {
                             <?php
                   
                   
-                  $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'"; 
-                  $quaresult = mysqli_query($conn, $quaSql);
-                  $quaExistRows = mysqli_num_rows($quaresult);
-                  if($quaExistRows == 0) {
-                      echo '<form action="_manageCart.php" method="POST">
-                            <input type="hidden" name="itemId" value="'.$id. '">
-                            <button type="submit" name="addToCart" class="btn btn-primary my-2 ">Add to Cart</button>';
-                  } else {
-                      echo '<a href="order.php"><button class="btn btn-success mx-2">Go to Cart</button></a>';
-                  }
-              
-              echo '</form>';
-              ?>
+                  if($loggedin){
+                    $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'"; 
+                    $quaresult = mysqli_query($conn, $quaSql);
+                    $quaExistRows = mysqli_num_rows($quaresult);
+                    if($quaExistRows == 0) {
+                        echo '<form action="_manageCart.php" method="POST"  class="d-inline">
+                              <input type="hidden" name="itemId" value="'.$id. '">
+                              <button type="submit" name="addToCart" class="btn btn-primary mx-7 my-3">Add to Cart</button>';
+                    } else {
+                        echo '<a href="order.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
+                    }
+                
+                echo '</form>';
+                }
+                else{
+                    echo '<a href="userlogin.php"><button class="btn btn-primary mx-7" >Add to Cart</button></a>';
+                }
+                ?>
                         </div>
                     </div>
                 </div>
