@@ -17,6 +17,9 @@ include('config/constant.php');
             <h2>Register Window</h2>
             <form method="post" action="">
                 <input class="input-box" type="text" name="username" placeholder="Your Name">
+                <input class="input-box" type="text" name="firstName" placeholder="Your First Name">
+                <input class="input-box" type="text" name="lastName" placeholder="Your Last Name">
+
                 <input class="input-box" type="email" name="email" placeholder="Your Email Address">
                 <input class="input-box" type="text" name="address" placeholder="Your Address">
                 <input type="tel" class="input-box" id="phone" name="phone" placeholder="Enter Phone No" required pattern="[0-9]{10}" maxlength="10">
@@ -33,34 +36,35 @@ include('config/constant.php');
     </div>
 </body>
 </html><?php
-
-if(isset($_POST['submit'])){
-    // Get the data from the registration form
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-    $password = md5($_POST['password']); // Note: Consider using stronger password hashing methods like bcrypt
-    $phone=$_POST['phone'];
-    
-
-    // Check if the username already exists
-    $sql = "SELECT * FROM users WHERE username='$username'";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-    if($resultCheck > 0){
-        header("Location: index.php?error=usernametaken");
-        exit();
-    } else {
-        // Insert the user data into the database
-        $sql = "INSERT INTO users (username, email, address, password ,phone) VALUES ('$username', '$email', '$address', '$password', '$phone')";
-        $result = mysqli_query($conn, $sql);
-        if($result){
-            header("Location: userlogin.php?signup=success");
-            exit();
-        } else {
-            header("Location: index.php?error=sqlerror");
-            exit();
-        }
+$showAlert = false;
+$showError = false;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    include 'Config/constant.php';
+    $username = $_POST["username"];
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $password = $_POST["password"];
+    // Check whether this username exists
+    $existSql = "SELECT * FROM `users` WHERE username = '$username'";
+    $result = mysqli_query($conn, $existSql);
+    $numExistRows = mysqli_num_rows($result);
+    if($numExistRows > 0){
+        $showError = "Username Already Exists";
+        header('location:'.SITEURL.'userregistration.php?signupsuccess=false&error='.$showError);
     }
-}
+    else{
+          $hash = password_hash($password, PASSWORD_DEFAULT);
+          $sql = "INSERT INTO `users` ( `username`, `firstName`, `lastName`, `email`, `phone`, `password`, `joinDate`) VALUES ('$username', '$firstName', '$lastName', '$email', '$phone', '$hash', current_timestamp())";   
+          $result = mysqli_query($conn, $sql);
+          if ($result){
+              $showAlert = true;
+              header('location:'.SITEURL.'userlogin.php?signupsuccess=true');
+          }
+      }
+     
+    }
+
+    
 ?>

@@ -96,7 +96,7 @@ if(isset($_SESSION['login'])){
                     <p class="text-center text-danger"> <?php echo $sub_description?></p>
                     <?php
                     // Check if user is logged in
-                    
+                    if($loggedin){
                         $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'"; 
                         $quaresult = mysqli_query($conn, $quaSql);
                         $quaExistRows = mysqli_num_rows($quaresult);
@@ -109,8 +109,12 @@ if(isset($_SESSION['login'])){
                         }
                     
                     echo '</form>';
+                    }
+                    else{
+                        echo '<a href="userlogin.php"><button class="btn btn-primary mx-7" >Add to Cart</button></a>';
+                    }
                     ?>
-                    <a href="viewitem.php?itemId=<?php echo $id;?>" class="btn btn-primary ">Quick View</a>
+                    <a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary ">Quick View</a>
                 </div>
             </div>
         </div>

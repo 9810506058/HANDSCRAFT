@@ -53,44 +53,35 @@ include('./config/constant.php')
         </div>
     </div>
 </body>
-</html>
-<?php
-//check the submt button is clicked or not
-if(isset($_POST['submit']))
-{
-    //process for login
-    //1. get the data from login form
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
-
-    //2. create a connection to
-
-    //3. write a query to check whether the user with username and password exists or not
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-
-    //4. execute the query
-    $res = mysqli_query($conn, $sql);
-
-    //5. count rows to check whether the user exists or not
-    $count = mysqli_num_rows($res);
-    $userId = mysqli_fetch_assoc($res)['id'];
-
-    if($count==1)
-    {
-        //user available and login success
-        $_SESSION['login'] = "<div class='success'> welcome $username Login Successful.</div>";
-        $_SESSION['user'] = $username;  //to check whether the user is logged in or not and logout will unset it
-        $_SESSION['loggedin'] = true;
-        $_SESSION['userId'] = $userId;
-
-        //redirect
-        header('location:'.SITEURL.'');
-
+</html><?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    include 'config/constant.php';
+    $username = $_POST["username"];
+    $password = $_POST["password"]; 
+    
+    $sql = "Select * from users where username='$username'"; 
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
+    if ($num == 1){
+        $row=mysqli_fetch_assoc($result);
+        $userId = $row['id'];
+        if (password_verify($password, $row['password'])){ 
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION['userId'] = $userId;
+            
+            $_SESSION['login']="<div class='success'> Welcome $username  ! You are logged in.</div>";
+            header('location:'.SITEURL.'index.php?loginsuccess=true');
+            exit();
+        } 
+        else{
+          
+            header("location:'.SITEURL.'userlogin.php?loginsuccess=false");
+        }
+    } 
+    else{
+        header("location:'.SITEURL.'userlogin.php?loginsuccess=false");
     }
-    else
-    {
-        //user not available and login failed
-        $_SESSION['login'] = "<div class='error text-center'>Login Failed. Invalid Username or Password.</div>";
-        header('location:'.SITEURL.'userlogin.php');
-    }
-}
+}    
+?>

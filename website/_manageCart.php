@@ -33,6 +33,14 @@
                     window.history.back(1);
                 </script>";
         }
+        
+    if(isset($_POST['removeAllItem'])) {
+        $sql = "DELETE FROM `viewcart` WHERE `userId`='$userId'";   
+        $result = mysqli_query($conn, $sql);
+        echo "<script>alert('Removed All');
+                window.history.back(1);
+            </script>";
+    }
     
 
     if(isset($_POST['checkout'])) {

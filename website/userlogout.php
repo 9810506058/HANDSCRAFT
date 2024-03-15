@@ -1,14 +1,17 @@
 <?php
-include('../config/constants.php');
 
-//destroy the session and redirect to the login page
-session_destroy();
+// Start the session
+session_start();
+
+// Echo a message to inform the user
+echo "Logging you out. Please wait...";
+
+// Unset specific session variables
+unset($_SESSION["loggedin"]);
 unset($_SESSION["username"]);
+unset($_SESSION["userId"]);
 
-//regenerate the session id
-session_regenerate_id(true);
-
-
-header("Location: userlogin.php");
-exit();
+// Redirect the user back to the index page
+header("location: index.php");
+exit; // Ensure no further script execution after redirection
 ?>

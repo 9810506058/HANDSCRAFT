@@ -22,7 +22,7 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
         $res = mysqli_query($conn, $sql);
         if ($res && mysqli_num_rows($res) > 0) {
             while ($row = mysqli_fetch_assoc($res)) {
-                $id = $row['item_id'];
+                $id = $row['itemId'];
                 $title = $row['title'];
                 $price = $row['price'];
                 $description = $row['description'];
@@ -43,8 +43,28 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
                         <div class="card-body text-center">
                             <h1 class="card-title"><?php echo $title;?></h1>
                             <p class="card-text text-success">Rs <?php echo $price;?></p>
-                            <a href="<?php echo SITEURL; ?>order.php?item_id=<?php echo $id; ?>" class="btn btn-success btn-outline">Add to cart</a>
-                            <a href="<?php echo SITEURL; ?>viewitem.php?item_id=<?php echo $id; ?>" class="btn btn-primary">Quick view</a>
+                            <?php
+
+                            // Check if user is logged in
+                    if($loggedin){
+                        $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'"; 
+                        $quaresult = mysqli_query($conn, $quaSql);
+                        $quaExistRows = mysqli_num_rows($quaresult);
+                        if($quaExistRows == 0) {
+                            echo '<form action="_manageCart.php" method="POST">
+                                  <input type="hidden" name="itemId" value="'.$id. '">
+                                  <button type="submit" name="addToCart" class="btn btn-primary mx-7 my-3">Add to Cart</button>';
+                        } else {
+                            echo '<a href="order.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
+                        }
+                    
+                    echo '</form>';
+                    }
+                    else{
+                        echo '<a href="userlogin.php"><button class="btn btn-primary mx-7" >Add to Cart</button></a>';
+                    }
+                    ?>
+                    <a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary ">Quick View</a>
                         </div>
                     </div>
                 </div>

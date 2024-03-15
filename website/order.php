@@ -19,6 +19,9 @@
 </head>
 <body>
     <?php require 'partials-frontend/nav.php' ?>
+    <?php 
+    if($loggedin){
+        ?>
     
     <div class="container" id="cont">
         <div class="row">
@@ -38,7 +41,10 @@
                                 <th scope="col">Total Price</th>
 
                                 <th scope="col">
-                                    <button name="removeAllItem" class="btn btn-sm btn-outline-danger">Remove All</button>
+                                <form action="_manageCart.php" method="POST">
+                                        <button name="removeAllItem" class="btn btn-sm btn-outline-danger">Remove All</button>
+                                        <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                                    </form>
                                 </th>
                             </tr>
                         </thead>
@@ -58,7 +64,6 @@
                                     $price = $myrow['price'];
                                     $image= $myrow['image_name'];
                                     $subdesc= $myrow['sub_description'];
-                                    
                                     $total = $price * $Quantity;
                                     $counter++;
                                   
@@ -81,14 +86,14 @@
                                 echo '
 
                                 
-                                            <td>.'. $price . '</td>
+                                            <td><span>Rs. </span>'. $price . '</td>
                                             <td>
                                                 <form id="frm' . $itemId . '">
                                                     <input type="hidden" name="itemId" value="' . $itemId . '">
                                                     <input type="number" name="quantity" value="' . $Quantity . '" class="text-center" onchange="updateCart(' . $itemId . ')" onkeyup="return false" style="width:60px" min=1 oninput="check(this)" onClick="this.select();">
                                                 </form>
                                             </td>
-                                            <td>' . $total . '</td>
+                                            <td> <span>Rs. </span>' . $total . '</td>
                                             <td>
                                                 <form action="_manageCart.php" method="POST">
                                                     <button name="removeItem" class="btn btn-sm btn-outline-danger">Remove</button>
@@ -96,6 +101,10 @@
                                                 </form>
                                             </td>
                                         </tr>';
+                                }
+                                
+                                if($counter==0) {
+                                    ?><script> document.getElementById("cont").innerHTML = '<div class="col-md-12 my-5"><div class="card"><div class="card-body cart"><div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-5 mt-5"><h3 class="text-danger text-capitalize mb-4" style="font-weight: bold; font-size: 70px"><strong>Your Cart is Empty</strong></h3><h4>Add more items in the cart :)</h4> <a href="index.php" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a> </div></div></div></div>';</script> <?php
                                 }
                             ?>
                         </tbody>
@@ -139,12 +148,18 @@
     </div>
                                 
     <br>
+    <?php
 
+  }  else {       echo '<div class="container" style="min-height : 610px;">
+                                <div class="alert alert-info my-3">
+                                    <font style="font-size:22px"><center>To view cart click here<br> <strong><a class="alert-link text-danger" href="userlogin.php" style="font-size: 30px;">Login</a></strong></center></font>
+                                </div></div>';
+                            }
+?>
    
     <?php require 'partials-frontend/footer.php' ?>
     
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>         
