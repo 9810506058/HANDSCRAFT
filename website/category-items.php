@@ -84,7 +84,7 @@ if(isset($_GET['category_id'])) {
                     $quaresult = mysqli_query($conn, $quaSql);
                     $quaExistRows = mysqli_num_rows($quaresult);
                     if($quaExistRows == 0) {
-                        echo '<form action="_manageCart.php" method="POST">
+                        echo '<form action="_manageCart.php" method="POST" class="d-inline">
                               <input type="hidden" name="itemId" value="'.$id. '">
                               <button type="submit" name="addToCart" class="btn btn-primary mx-7 my-3">Add to Cart</button>';
                     } else {
