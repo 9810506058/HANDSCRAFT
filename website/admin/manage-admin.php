@@ -1,6 +1,11 @@
 <?php
     include('partials/menu.php');
+   
+        
 ?>
+<?php
+if($loggedin){
+    ?>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <div class="container ">
     <div class="wrapper">
@@ -106,4 +111,10 @@ function confirmDelete(deleteUrl) {
 
 <?php
 include('partials/footer.php');
+        }
+else{
+    // Handle case where $loggedin is false
+    $_SESSION['login'] = "<div class='error'>Please login to access Admin Panel.</div>";
+    header('location:'.SITEURL.'admin/login.php');
+}
 ?>

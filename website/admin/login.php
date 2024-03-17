@@ -78,7 +78,8 @@ if(isset($_POST['submit'])){
         //user available and login success
         $_SESSION['login']="<div class='success'> Welcome $username  ! You are logged in.</div>";
 
-       $_SESSION['user']=$username;
+        $_SESSION['loggedin'] = true;
+            $_SESSION['user'] = $username;
        
        //redirect
     

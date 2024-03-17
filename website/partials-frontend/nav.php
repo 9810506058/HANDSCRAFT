@@ -95,8 +95,27 @@ else{
         <a href="About-us.php" class="nav-link"> About us</a>
       </li>
       <li class="nav-item">
-        <a href="order.php" class="nav-link"> Cart <i class="fa-solid fa-cart-shopping"></i></a>
+      <?php
+if ($loggedin) {
+    $countsql = "SELECT SUM(`itemQuantity`) AS totalQuantity FROM `viewcart` WHERE `userId` = $userId"; 
+    $countresult = mysqli_query($conn, $countsql);
+    $countrow = mysqli_fetch_assoc($countresult);      
+    $count = $countrow['totalQuantity'];
+    if (!$count) {
+        $count = 0;
+    }
+    echo '<a href="order.php" class="nav-link">
+            Cart(' . $count . ')
+          </button></a>';
+} else {
+    echo '<a href="order.php" class="nav-link">
+            Cart
+          </button></a>';
+}
+?>
       </li>
+
+
       <li>
         <form class="d-flex" action="<?php echo SITEURL; ?>item-search.php" method="POST">
           <div class="input-group">

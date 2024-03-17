@@ -3,6 +3,9 @@
 
 // Include menu file
 include('partials/menu.php');
+if($loggedin){
+
+?>
 
 // Check if form is submitted
 if(isset($_POST['submit'])) {
@@ -167,4 +170,13 @@ if(isset($_POST['submit'])) {
     </div>
 </div>
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials/footer.php');
+} else{
+    // Handle case where $loggedin is false
+    $_SESSION['login'] = "<div class='error'>Please login to access admin pannel.</div>";
+    header('location:'.SITEURL.'admin/login.php');
+}
+ ?>
+ 
+
+
