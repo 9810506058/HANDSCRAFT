@@ -75,8 +75,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             header('location:'.SITEURL.'index.php?loginsuccess=true');
             exit();
         } 
-        else{
-            $_SESSION['failed-access']="<div class='error' style='font-size : 18px'> login failed.</div>";
+        else{ 
+            $_SESSION['failed-access']="<div class='error' style='font-size : 18px'> login failed incorrect password.</div>";
             header('location:'.SITEURL.'userlogin.php?loginsuccess=false');
         }
     } 

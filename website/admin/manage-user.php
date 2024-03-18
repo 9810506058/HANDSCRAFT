@@ -2,6 +2,10 @@
 <?php include('partials/menu.php');
 
 ?>
+<?php
+if($loggedin){
+    ?>
+
 
         <h1 class="text-center pt-3 font-weight-bold">Manage Users</h1>
         
@@ -25,6 +29,7 @@
                             <th>SN</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th> Address</th>
                             <th>Phone No.</th>
                             <th>Action</th>
                         </tr>
@@ -39,12 +44,14 @@
                                 $Id = $row['id'];
                                 $username = $row['username'];
                                 $email = $row['email'];
+                                $address = $row['address'];
                                 $phone = $row['phone'];
 
                                 echo '<tr>
                                     <td>' .$sn++. '</td>
                                     <td>' .$username. '</td>
                                     <td>' .$email. '</td>
+                                    <td>' .$address. '</td>
                                     <td>' .$phone. '</td>
                                     <td class="text-center">
                                         <div class="row mx-auto" style="width:112px">
@@ -176,3 +183,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<?php
+}
+else{
+    // Redirect to login page if user is not logged in
+    $_SESSION ['login'] = "<div class='error'>Please login to access admin pannel.</div>";
+    header('location:'.SITEURL.'admin/login.php');
+}

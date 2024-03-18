@@ -6,6 +6,7 @@ include('partials/menu.php');
 if($loggedin){
 
 ?>
+<?php
 
 // Check if form is submitted
 if(isset($_POST['submit'])) {

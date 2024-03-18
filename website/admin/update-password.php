@@ -1,6 +1,10 @@
 <?php
 include('partials/menu.php');
 ?>
+<?php
+if($loggedin){
+    
+?>
 <div class="main-content">
     <div class="wrapper">
         <a href="manage-admin.php"><i class="fa-solid fa-arrow-left"></i></a>
@@ -95,4 +99,12 @@ if (isset($_POST['submit'])) {
 
 <?php
 include('partials/footer.php');
+?>
+<?php
+}
+else{
+    // Redirect to login page if user is not logged in
+    $_SESSION ['login'] = "<div class='error'>Please login to access admin pannel.</div>";
+    header('location:'.SITEURL.'admin/login.php');
+}
 ?>

@@ -1,6 +1,10 @@
 <?php
  
     include('partials/menu.php');
+    ?>
+    <?php
+    if($loggedin){
+        
 
     // Check if 'id' parameter is set
     if(isset($_GET['id'])) {
@@ -224,3 +228,12 @@
 </div>
 
 <?php include('partials/footer.php'); ?>
+<?php
+    }
+
+    else {
+        // Redirect to login page if user is not logged in
+        $_SESSION ['login'] = "<div class='error'>Please login to access admin pannel.</div>";
+        header('location:'.SITEURL.'admin/login.php');
+        exit();
+    }

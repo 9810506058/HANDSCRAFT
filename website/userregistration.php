@@ -45,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $lastName = $_POST["lastName"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
+    $address = $_POST["address"];
     $password = $_POST["password"];
     // Check whether this username exists
     $existSql = "SELECT * FROM `users` WHERE username = '$username'";

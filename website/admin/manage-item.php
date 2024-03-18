@@ -2,7 +2,11 @@
 // Consider replacing 'include' with 'require_once' if 'menu.php' and 'footer.php' are essential for the functionality
 require_once('partials/menu.php');
 
+
 ?>
+<?php
+if($loggedin){
+    ?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -67,7 +71,7 @@ require_once('partials/menu.php');
                 <td><?php 
                     if ($image_name != "") {
                         // Use SITEURL for consistency
-                        echo "<img src='" . SITEURL . "images/item/" . htmlspecialchars($image_name) . "' width='10w0px' height='50px'>";
+                        echo "<img src='" . SITEURL . "images/item/" . htmlspecialchars($image_name) . "' width='100px' height='70px'>";
                     } else {
                         echo "<div class='error'>Image not added</div>";
                     }
@@ -118,3 +122,11 @@ function confirmDelete(deleteUrl) {
     }
 }
 </script>
+<?php
+}
+else{
+    // Redirect to login page if user is not logged in
+    $_SESSION ['login'] = "<div class='error'>Please login to access admin pannel.</div>";
+    header('location:'.SITEURL.'admin/login.php');
+}
+?>
