@@ -81,7 +81,7 @@ if($loggedin){
 
         <?php 
         if(isset($_POST['submit'])) {
-            $id = $_POST['categoryId'];
+            $id = $_POST['id'];
             $title = $_POST['title'];
             $current_image = $_POST['current_image'];
             $featured = isset($_POST['featured']) ? $_POST['featured'] : "No";

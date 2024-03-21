@@ -17,7 +17,7 @@ if(isset($_SESSION['login'])){
     <div class="row">
         <?php 
         // Display categories
-        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
+        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' ";
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0) {
             while($row = mysqli_fetch_assoc($res)) {
@@ -57,7 +57,6 @@ if(isset($_SESSION['login'])){
         <a href="categories.php" class="btn text-danger"><i class="fa-solid fa-arrow-down"></i></a>
     </p>
 </section>
-
 <div class="container">
     <div class="line" style="width: 100%; height: 2px; background-color: #e53937;"></div>
 </div>
@@ -67,7 +66,7 @@ if(isset($_SESSION['login'])){
     <div class="row">
         <?php 
         // Display items
-        $sql2 = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes' LIMIT 3";
+        $sql2 = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes'";
         $res2 = mysqli_query($conn, $sql2);
         if(mysqli_num_rows($res2) > 0) {
             while($row = mysqli_fetch_assoc($res2)) {
@@ -103,10 +102,10 @@ if ($loggedin) {
     if ($quaExistRows == 0) {
         echo '<form action="_manageCart.php" method="POST" class="d-inline">';
         echo '<input type="hidden" name="itemId" value="' . $id . '">';
-        echo '<button type="submit" name="addToCart" class="btn btn-primary mr-2">Add to Cart</button>';
+        echo '<button type="submit" name="addToCart" class="btn btn-primary mr-4">Add to Cart</button>';
         echo '</form>';
     } else {
-        echo '<a href="order.php" class="mr-3 "><button class="btn btn-success">Go to Cart</button></a>';
+        echo '<a href="order.php" class="mr-3 "><button class="btn btn-success ">Go to Cart</button></a>';
     }
 } else {
     echo '<a href="userlogin.php" class="mr-3"><button class="btn btn-primary">Add to Cart</button></a>';

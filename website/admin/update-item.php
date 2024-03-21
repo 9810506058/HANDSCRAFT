@@ -38,7 +38,7 @@
     // Check if the form is submitted
     if(isset($_POST['submit'])) {
         // Retrieve form data
-        $id = $_POST['itemId'];
+        $id = $_POST['id'];
         $title = $_POST['title'];
         $description = $_POST['description'];
         $sub_description = $_POST['sub_description'];
@@ -124,7 +124,7 @@
             category_id = '$category',
             featured = '$featured',
             active = '$active'
-            WHERE id=$id";
+            WHERE itemId=$id";
 
         $res3 = mysqli_query($conn, $sql3);
 
@@ -190,7 +190,7 @@
                                 if($res && mysqli_num_rows($res) > 0) {
                                     while($row = mysqli_fetch_assoc($res)) {
                                         $category_title = $row['title'];
-                                        $category_id = $row['id'];
+                                        $category_id = $row['categoryId'];
                             ?>
                                 <option <?php if($current_category == $category_id) {echo "selected";} ?> value="<?php echo $category_id; ?>"><?php echo $category_title; ?></option>
                             <?php 
