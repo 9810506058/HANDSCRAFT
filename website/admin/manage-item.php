@@ -28,6 +28,11 @@ if($loggedin){
             echo $_SESSION['update'];
             unset($_SESSION['update']);
         }
+        if(isset($_SESSION['success'])) {
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+            
+        }
         
         ?>
               

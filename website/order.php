@@ -111,8 +111,8 @@
                     </table>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card wish-list mb-3">
+            <div class="col-lg-4  ">
+                <div class="card wish-list mb-3 bg-dark">
                     <div class="pt-4 border bg-light rounded p-3">
                     <h5 class="mb-3 text-uppercase font-weight-bold text-center"><i class="fa-solid fa-file-invoice-dollar"></i> Bill</h5>
 
@@ -156,7 +156,7 @@
                                 </div></div>';
                             }
 ?>
-   
+    <?php require '_checkoutModal.php'; ?>
     <?php require 'partials-frontend/footer.php' ?>
     
   

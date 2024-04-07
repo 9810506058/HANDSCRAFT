@@ -129,7 +129,7 @@
         $res3 = mysqli_query($conn, $sql3);
 
         if($res3) {
-            $_SESSION['success'] = "Item updated successfully.";
+            $_SESSION['add'] = "<div class='success'>Item updated Successfully.</div>";
             header('location:'.SITEURL.'admin/manage-item.php');
             exit();
         } else {

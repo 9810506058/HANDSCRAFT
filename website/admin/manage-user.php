@@ -87,14 +87,28 @@ if($loggedin){
       </div>    
       <div class="modal-body">
         <form action="_userManage.php" method="post">
+
               <div class="form-group">
                   <b><label for="username">Username</label></b>
                   <input class="form-control" id="username" name="username" placeholder="Choose a unique Username" type="text" required minlength="3" maxlength="11">
               </div>
              
               <div class="form-group">
+                  <b><label for="firstName">First Name:</label></b>
+                  <input class="form-control" id="firstName" name="firstName" placeholder="Enter Your First Name" type="text" required>
+              </div>
+              <div class="form-group">
+                  <b><label for="lastName">Last Name:</label></b>
+                  <input class="form-control" id="lastName" name="lastName" placeholder="Enter Your Last Name" type="text" required>
+              </div>
+             
+              <div class="form-group">
                   <b><label for="email">Email:</label></b>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+              </div>
+              <div class="form-group">
+                  <b><label for="address">Address:</label></b>
+                  <input class="form-control" id="address" name="address" placeholder="Enter Address" type="text" required>
               </div>
               <div class="form-group row my-0">
                     <div class="form-group col-md-6 my-0">
@@ -125,8 +139,11 @@ if($loggedin){
     while($userRow = mysqli_fetch_assoc($userResult)){
         $Id = $userRow['id'];
         $name = $userRow['username'];
-       
         $email = $userRow['email'];
+        $address = $userRow['address'];
+        $phone = $userRow['phone'];
+        $firstName = $userRow['firstName'];
+        $lastName = $userRow['lastName'];
         $phone = $userRow['phone'];
 
 
@@ -148,10 +165,22 @@ if($loggedin){
                     <b><label for="username">Username</label></b>
                     <input class="form-control" id="username" name="username" value="<?php echo $name; ?>" type="text" >
                 </div>
+                <div class="form-group">
+                    <b><label for="firstName">First Name:</label></b>
+                    <input class="form-control" id="firstName" name="firstName" value="<?php echo $firstName; ?>" type="text" >
+                </div>
+                <div class="form-group">
+                    <b><label for="lastName">Last Name:</label></b>
+                    <input class="form-control" id="lastName" name="lastName" value="<?php echo $lastName; ?>" type="text" >
+                </div>
                
                 <div class="form-group">
                     <b><label for="email">Email:</label></b>
                     <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
+                </div>
+                <div class="form-group">
+                    <b><label for="address">Address:</label></b>
+                    <input class="form-control" id="address" name="address" value="<?php echo $address; ?>" type="text" required>
                 </div>
                 <div class="form-group row my-0">
                     <div class="form-group col-md-6 my-0">
