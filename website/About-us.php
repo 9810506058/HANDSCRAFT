@@ -14,7 +14,7 @@
     <br><br>
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tempore.</p>
-    
+    <p>this is changed directory</p>
   
    
     <!-- what people tell about us -->
