@@ -129,15 +129,11 @@ table tr td{
 
 /*  css for footer*/
 .footer{
-    background-color: grey;
-    position:static;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  
-  color: white;
-  text-align: center;
+    
+
 }
+
+
 /* css for login */
 .login{
     border: 5px solid black;
