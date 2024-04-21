@@ -14,10 +14,8 @@
     <br><br>
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tempore.</p>
-    <p>heloooo</p>
-  <p>hy my name is john doe</p>
-    <p> hy sova dd</p>
-
+    
+  
    
     <!-- what people tell about us -->
     <section id="testimonials">
