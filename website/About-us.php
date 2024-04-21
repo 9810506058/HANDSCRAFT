@@ -15,7 +15,7 @@
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tempore.</p>
     <p>heloooo</p>
-    <p> hy sova</p>
+  <p>hy my name is john doe</p>
 
    
     <!-- what people tell about us -->
