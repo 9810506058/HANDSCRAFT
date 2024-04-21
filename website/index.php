@@ -108,6 +108,7 @@ if ($loggedin) {
         echo '<a href="order.php" class="mr-3 "><button class="btn btn-success ">Go to Cart</button></a>';
     }
 } else {
+    
     echo '<a href="userlogin.php" class="mr-3"><button class="btn btn-primary">Add to Cart</button></a>';
 }
 echo '<a href="viewitem.php?item_id=' . $id . '" class="btn btn-primary ml-7  mx-3">Quick View</a>';

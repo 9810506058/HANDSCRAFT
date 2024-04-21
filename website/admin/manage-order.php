@@ -10,9 +10,9 @@ include('partials/menu.php');
 <?php
 if($loggedin){
     ?>
-   <div class="container" style="margin-top:98px;background: aliceblue;">
+   <div class="container" style="margin-top:98px;">
     <div class="table-wrapper">
-        <div class="table-title" style="border-radius: 14px;">
+        <div class="table-title" style="background:pink;">
             <div class="row">
                 <div class="col-sm-4">
                     <h2>Order <b>Details</b></h2>
@@ -25,7 +25,7 @@ if($loggedin){
         </div>
         
         <table class="table table-striped table-hover text-center" id="NoOrder">
-            <thead style="background-color: rgb(111 202 203);">
+            <thead >
                 <tr>
                     <th>Order Id</th>
                     <th>User Id</th>
