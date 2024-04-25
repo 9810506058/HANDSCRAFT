@@ -77,7 +77,7 @@ if(isset($_SESSION['login'])){
                 $sub_description = $row['sub_description'];
                 $image_name = $row['image_name'];
         ?>
-        <div class="col-md-3 py-3">
+         <div class="col-md-3 py-3 py-md-0 mt-3">
             <div class="card">
                 <?php 
                 // Check if image available
@@ -99,21 +99,22 @@ if ($loggedin) {
     $quaSql = "SELECT `itemQuantity` FROM `viewcart` WHERE itemId = '$id' AND `userId`='$userId'";
     $quaresult = mysqli_query($conn, $quaSql);
     $quaExistRows = mysqli_num_rows($quaresult);
-    if ($quaExistRows == 0) {
-        echo '<form action="_manageCart.php" method="POST" class="d-inline">';
-        echo '<input type="hidden" name="itemId" value="' . $id . '">';
-        echo '<button type="submit" name="addToCart" class="btn btn-primary mr-4">Add to Cart</button>';
-        echo '</form>';
+    if($quaExistRows == 0) {
+        echo '<form action="_manageCart.php" method="POST"  class="d-inline">
+              <input type="hidden" name="itemId" value="'.$id. '">
+              <button type="submit" name="addToCart" class="btn btn-primary mx-6 my-3 " >Add to Cart</button>';
     } else {
-        echo '<a href="order.php" class="mr-3 "><button class="btn btn-success ">Go to Cart</button></a>';
+        echo '<a href="order.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
     }
-} else {
-    
-    echo '<a href="userlogin.php" class="mr-3"><button class="btn btn-primary">Add to Cart</button></a>';
+
+echo '</form>';
 }
-echo '<a href="viewitem.php?item_id=' . $id . '" class="btn btn-primary ml-7  mx-3">Quick View</a>';
-echo '</div>';
+else{
+    echo '<a href="userlogin.php"><button class="btn btn-primary mx-7" >Add to Cart</button></a>';
+}
 ?>
+<a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary  my-3 ml-9 mt-3" >Quick View</a>
+  </div>
 
             </div>
         </div>
