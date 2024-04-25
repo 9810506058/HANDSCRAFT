@@ -127,15 +127,19 @@ if ($loggedin) {
         </form>
       </li>
       <?php
-      if ($loggedin) {
-          echo '<li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome ' . $username . '</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="userlogout.php">Logout</a>
-                  </div>
-                </li>
-                ';
-      } else {
+      if ($loggedin) { 
+        echo '<ul class="navbar-nav mr-2">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome ' .$username. '</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="userlogout.php">Logout</a>
+          </div>
+        </li>
+      </ul>
+      <div class="text-center image-size-small position-relative">
+        <a href="viewProfile.php"><img src="images/person-' .$userId. '.jpg" class="rounded-circle" onError="this.src = \'images/bb.jpg\'" style="width:50px; height:40px"></a>
+      </div>';
+    } else {
           echo '<li class="nav-item">
                   <a class="btn btn-success mx-2" href="userlogin.php">Login</a>
                 </li>

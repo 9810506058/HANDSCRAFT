@@ -1,8 +1,8 @@
 
+
 <!-- Footer Start -->
 <footer id="footer">
   <div class="f-content">
-   
   
     <i class="fa-brands fa-twitter"></i>
     <i class="fa-brands fa-instagram"></i>
