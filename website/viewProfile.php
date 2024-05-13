@@ -7,7 +7,7 @@
     <meta name="description" content="Bootstrap navbar examples for any type of project, Bootstrap 4" />  
 
     <title>Profile </title>
-    <link rel = "icon" href ="img/logo.jpg" type = "image/x-icon">
+    <link rel = "icon" href ="images/logo.jpg" type = "image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -20,6 +20,7 @@
         .row {
             margin-right: 150px;
             margin-top: 73px;
+            background-color: wheat;
         }
         .footer {
             position:fixed;
@@ -147,7 +148,7 @@
         <div class="row">
             <div class="jumbotron p-3 mb-3" style="display: flex;justify-content: center;width: 28%;border-radius: 50px;margin: 0 auto;">
                 <div class="user-info">
-                    <img class="rounded-circle mb-3 bg-dark" src="images/person-<?php echo $userId; ?>.jpg" onError="this.src = 'images/logo.jpg'" style="width:215px;height:215px;padding:1px;">
+                <img class="mb-5 bg-dark" src="images/users-Name-<?php echo $userId; ?>.jpg" onError="this.src = 'images/logo.jpg'" style="width:215px;height:215px;padding:1px;">
                     <form action="manage-profile.php" method="POST">
                         <small>Remove Image: </small><button type="submit" class="btn btn-primary" name="removeProfilePic" style="font-size: 12px;padding: 3px 8px;border-radius: 9px;">remove</button>
                     </form>

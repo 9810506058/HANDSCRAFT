@@ -39,6 +39,7 @@ else{
  
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg justify-content-center " id="navbar">
+  <!-- // system logo here// -->
   <a href="index.php" class="navbar-brand" id="logo"><img src="./images/logo.jpg" alt=""></a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
     <span><i class="fa-solid fa-bars"></i></span>
@@ -104,16 +105,19 @@ if ($loggedin) {
     if (!$count) {
         $count = 0;
     }
-    echo '<a href="order.php" class="nav-link">
+    echo '<a href="cart.php" class="nav-link">
             Cart(' . $count . ')
           </button></a>';
 } else {
-    echo '<a href="order.php" class="nav-link">
+    echo '<a href="cart.php" class="nav-link">
             Cart
           </button></a>';
 }
-?>
+?></li>
+ <li class="nav-item">
+        <a href="vieworder.php" class="nav-link"> view order</a>
       </li>
+      
 
 
       <li>
@@ -137,7 +141,7 @@ if ($loggedin) {
         </li>
       </ul>
       <div class="text-center image-size-small position-relative">
-        <a href="viewProfile.php"><img src="images/person-' .$userId. '.jpg" class="rounded-circle" onError="this.src = \'images/bb.jpg\'" style="width:50px; height:40px"></a>
+        <a href="viewProfile.php"><img src="images/users-Name-' .$userId. '.jpg" class="rounded-circle" onError="this.src = \'images/bb.jpg\'" style="width:50px; height:40px"></a>
       </div>';
     } else {
           echo '<li class="nav-item">

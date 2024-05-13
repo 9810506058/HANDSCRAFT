@@ -100,10 +100,15 @@ if($loggedin){
         </table>
     </div>
 </div> 
+<?php 
+    include 'partials/_orderItemModal.php';
+    include 'partials/_orderStatusModal.php';
+?>
 
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 <style>
     .tooltip.show {
         top: -62px !important;
@@ -222,8 +227,8 @@ $(document).ready(function(){
 <?php
 include('partials/footer.php');
 
-
 ?>
+
 
 <?php
 }

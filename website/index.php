@@ -77,7 +77,7 @@ if(isset($_SESSION['login'])){
                 $sub_description = $row['sub_description'];
                 $image_name = $row['image_name'];
         ?>
-         <div class="col-md-3 py-3 py-md-0 mt-3">
+         <div class="col-md-3 py-2 py-md-0">
             <div class="card">
                 <?php 
                 // Check if image available
@@ -102,9 +102,9 @@ if ($loggedin) {
     if($quaExistRows == 0) {
         echo '<form action="_manageCart.php" method="POST"  class="d-inline">
               <input type="hidden" name="itemId" value="'.$id. '">
-              <button type="submit" name="addToCart" class="btn btn-primary mx-6 my-3 " >Add to Cart</button>';
+              <button type="submit" name="addToCart" class="btn btn-primary mx-7 my-3 " >Add to Cart</button>';
     } else {
-        echo '<a href="order.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
+        echo '<a href="cart.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
     }
 
 echo '</form>';
@@ -113,7 +113,7 @@ else{
     echo '<a href="userlogin.php"><button class="btn btn-primary mx-7" >Add to Cart</button></a>';
 }
 ?>
-<a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary  my-3 ml-9 mt-3" >Quick View</a>
+<a href="viewitem.php?item_id=<?php echo $id;?>" class="btn btn-primary " >Quick View</a>
   </div>
 
             </div>

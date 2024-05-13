@@ -55,7 +55,7 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
                                   <input type="hidden" name="itemId" value="'.$id. '">
                                   <button type="submit" name="addToCart" class="btn btn-primary mx-7 my-3">Add to Cart</button>';
                         } else {
-                            echo '<a href="order.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
+                            echo '<a href="cart.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
                         }
                     
                     echo '</form>';

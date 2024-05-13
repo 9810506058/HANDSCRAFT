@@ -4,29 +4,34 @@
     
     
     if(isset($_POST["updateProfilePic"])){
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
-        if($check !== false) {
-            $newfilename = "person-".$userId.".jpg";
+       
+            $image_name = $_FILES['image']['name'];
+            if($image_name != "") {
+                // Rename the image
+                $ext = pathinfo($image_name, PATHINFO_EXTENSION);
+                $image_name = "users-Name-" . $userId . "." . $ext;
 
-            $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/HANDSCRAFT/website/images/';
-            $uploadfile = $uploaddir . $newfilename;
-
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-                echo "<script>alert('success');
+        
+                // Upload the image
+                $src = $_FILES['image']['tmp_name'];
+                $dst = "./images/" . $image_name;
+                $upload = move_uploaded_file($src, $dst);echo "<script>alert('success');
                         window.location=document.referrer;
                     </script>";
-            } else {
-                echo "<script>alert('image upload failed, please try again.');
-                     
-                    </script>";
+        
+                if($upload == false) {
+                    $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
+                    echo "<script>alert('image upload failed, please try again.');
+                    window.location=document.referrer;
+                </script>";
+                    exit(); // Terminate script execution
+                }
             }
+        } else {
+            $image_name = ""; 
+            // Set default value
         }
-        else{
-            echo '<script>alert("Please select an image file to upload.");
-                window.history.back(1);
-            </script>';
-        }
-    }
+    
 
     if(isset($_POST["updateProfileDetail"])){
         $firstName = $_POST["firstName"];
@@ -58,8 +63,9 @@
         }
     }
     
+   
     if(isset($_POST["removeProfilePic"])){
-        $filename = $_SERVER['DOCUMENT_ROOT']." HANDSCRAFT/website/images/person-".$userId.".jpg";
+        $filename = $_SERVER['DOCUMENT_ROOT']."/HANDSCRAFT/website/images/users-Name-".$userId.".jpg";
         if (file_exists($filename)) {
             unlink($filename);
             echo "<script>alert('Removed');
