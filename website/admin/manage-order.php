@@ -10,9 +10,9 @@ include('partials/menu.php');
 <?php
 if($loggedin){
     ?>
-   <div class="container" style="margin-top:98px;">
+  <div class="container" style="margin-top:98px;background: aliceblue;">
     <div class="table-wrapper">
-        <div class="table-title" style="background:pink;">
+        <div class="table-title" style="border-radius: 14px;">
             <div class="row">
                 <div class="col-sm-4">
                     <h2>Order <b>Details</b></h2>
@@ -25,13 +25,10 @@ if($loggedin){
         </div>
         
         <table class="table table-striped table-hover text-center" id="NoOrder">
-            <thead >
+            <thead style="background-color: rgb(111 202 203);">
                 <tr>
                     <th>Order Id</th>
                     <th>User Id</th>
-                    <th>username</th>
-                    
-                    <th>item quantity</th>
                     <th>Address</th>
                     <th>Phone No</th>
                     <th>Amount</th>						
@@ -48,23 +45,13 @@ if($loggedin){
                     $counter = 0;
                     while($row = mysqli_fetch_assoc($result)){
                         $Id = $row['userId'];
-                        $sql2 = "SELECT * FROM `orderitems` ";
-                        $result2 = mysqli_query($conn, $sql2);
-                        $row2 = mysqli_fetch_assoc($result2);
-                        while ($row2 = mysqli_fetch_assoc($result2)) {
-                            
-                        
-                       
-                         $itemQuantity= $row2['itemQuantity'];
-                        }
                         $orderId = $row['orderId'];
-                        $username = $row['username'];
                         $address = $row['address'];
+                       
                         $phoneNo = $row['phoneNo'];
                         $amount = $row['amount'];
                         $orderDate = $row['orderDate'];
                         $paymentMode = $row['paymentMode'];
-                        
 
                         if($paymentMode == 0) {
                             $paymentMode = "Cash on Delivery";
@@ -74,15 +61,10 @@ if($loggedin){
                         }
                         $orderStatus = $row['orderStatus'];
                         $counter++;
-                                                                                                                                                 
-
                         
                         echo '<tr>
                                 <td>' . $orderId . '</td>
                                 <td>' . $Id . '</td>
-                                <td>' . $username . '</td>
-                                
-                                <td>' . $itemQuantity . '</td>
                                 <td data-toggle="tooltip" title="' .$address. '">' . substr($address, 0, 20) . '...</td>
                                 <td>' . $phoneNo . '</td>
                                 <td>' . $amount . '</td>
@@ -100,15 +82,13 @@ if($loggedin){
         </table>
     </div>
 </div> 
+
 <?php 
     include 'partials/_orderItemModal.php';
     include 'partials/_orderStatusModal.php';
 ?>
 
-
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
 <style>
     .tooltip.show {
         top: -62px !important;
@@ -225,7 +205,7 @@ $(document).ready(function(){
 </script>
 
 <?php
-include('partials/footer.php');
+include('./partials/footer.php');
 
 ?>
 
@@ -236,4 +216,13 @@ else{
     // Handle case where $loggedin is false
     $_SESSION['login'] = "<div class='error'>Please login to access admin pannel.</div>";
     header('location:'.SITEURL.'admin/login.php');
-}
+}?>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>         
+<script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+</body>
+</html>

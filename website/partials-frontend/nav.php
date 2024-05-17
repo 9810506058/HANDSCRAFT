@@ -134,8 +134,9 @@ if ($loggedin) {
       if ($loggedin) { 
         echo '<ul class="navbar-nav mr-2">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome ' .$username. '</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"> ' .$username. '</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="viewProfile.php">View Profile</a>
             <a class="dropdown-item" href="userlogout.php">Logout</a>
           </div>
         </li>

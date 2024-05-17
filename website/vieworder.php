@@ -194,7 +194,7 @@
                                     <td>' . $orderDate . '</td>
                                     <td><a href="#" data-toggle="modal" data-target="#orderStatus' . $orderId . '" class="view"><i class="material-icons">&#xE5C8;</i></a></td>
                                     <td><a href="#" data-toggle="modal" data-target="#orderItem' . $orderId . '" class="view" title="View Details"><i class="material-icons">&#xE5C8;</i></a></td>
-                                    
+
                                 </tr>';
                         }
                         

@@ -148,7 +148,7 @@
         <div class="row">
             <div class="jumbotron p-3 mb-3" style="display: flex;justify-content: center;width: 28%;border-radius: 50px;margin: 0 auto;">
                 <div class="user-info">
-                <img class="mb-5 bg-dark" src="images/users-Name-<?php echo $userId; ?>.jpg" onError="this.src = 'images/logo.jpg'" style="width:215px;height:215px;padding:1px;">
+                <img class="mb-5 bg-dark" src="images/users-Name-<?php echo $userId; ?>.jpg" onError="this.src = 'images/logo.jpg'" style="width:250px;height:300px;padding:1px;">
                     <form action="manage-profile.php" method="POST">
                         <small>Remove Image: </small><button type="submit" class="btn btn-primary" name="removeProfilePic" style="font-size: 12px;padding: 3px 8px;border-radius: 9px;">remove</button>
                     </form>

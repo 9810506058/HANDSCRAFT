@@ -7,6 +7,7 @@
         $orderStatus = $itemModalRow['orderStatus'];
     
 ?>
+
 <!-- Modal -->
 <div class="modal fade" id="orderStatus<?php echo $orderid; ?>" tabindex="-1" role="dialog" aria-labelledby="orderStatus<?php echo $orderid; ?>" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -34,21 +35,12 @@
         <?php 
             $deliveryDetailSql = "SELECT * FROM `deliverydetails` WHERE `orderId`= $orderid";
             $deliveryDetailResult = mysqli_query($conn, $deliveryDetailSql);
-            if (!$deliveryDetailResult) {
-                printf("Error: %s\n", mysqli_error($conn));
-                exit();
-            }
             $deliveryDetailRow = mysqli_fetch_assoc($deliveryDetailResult);
-            if (!$deliveryDetailRow) {
-                echo "No delivery details found for order ID: $orderid";
-                // Handle this scenario as per your application's requirements
-            } else {
-                $trackId = $deliveryDetailRow['id'];
-                $deliveryBoyName = $deliveryDetailRow['deliveryBoyName'];
-                $deliveryBoyPhoneNo = $deliveryDetailRow['deliveryBoyPhoneNo'];
-                $deliveryTime = $deliveryDetailRow['deliveryTime'];
-
-                if($orderStatus>0 && $orderStatus<5) { 
+            $trackId = $deliveryDetailRow['id'];
+            $deliveryBoyName = $deliveryDetailRow['deliveryBoyName'];
+            $deliveryBoyPhoneNo = $deliveryDetailRow['deliveryBoyPhoneNo'];
+            $deliveryTime = $deliveryDetailRow['deliveryTime'];
+            if($orderStatus>0 && $orderStatus<5) { 
         ?>
             <form action="partials/_orderManage.php" method="post">
                 <div class="text-left my-2">
@@ -69,10 +61,7 @@
                 <input type="hidden" id="orderId" name="orderId" value="<?php echo $orderid; ?>">
                 <button type="submit" class="btn btn-success" name="updateDeliveryDetails">Update</button>
             </form>
-        <?php 
-                }
-            }
-        ?>
+        <?php } ?>
       </div>
     </div>
   </div>
