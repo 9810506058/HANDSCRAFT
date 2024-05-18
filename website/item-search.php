@@ -72,9 +72,7 @@ $search = mysqli_real_escape_string($conn, $_POST['search']);
             }
         } else {
             echo "<div class='col-md-12'><div class='error text-danger'>Item not found.</div></div>";?>
-            <script>
-                alert("Item not found")
-            </script>
+          
             <?php
         }
         ?>
