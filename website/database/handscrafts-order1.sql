@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2024 at 05:47 PM
+-- Generation Time: May 18, 2024 at 05:24 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `handscrafts-order`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deliverydetails`
+--
+
+CREATE TABLE `deliverydetails` (
+  `id` int(21) NOT NULL,
+  `orderId` int(21) NOT NULL,
+  `deliveryBoyName` varchar(35) NOT NULL,
+  `deliveryBoyPhoneNo` bigint(25) NOT NULL,
+  `deliveryTime` int(200) NOT NULL COMMENT 'Time in minutes',
+  `dateTime` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `deliverydetails`
+--
+
+INSERT INTO `deliverydetails` (`id`, `orderId`, `deliveryBoyName`, `deliveryBoyPhoneNo`, `deliveryTime`, `dateTime`) VALUES
+(2, 20, 'messi ', 1152252552, 45, '2024-05-17 23:33:12'),
+(3, 23, 'prashant', 9810506058, 45, '2024-05-17 23:40:49'),
+(4, 24, 'Nirakar  Bhattarai', 9765378356, 60, '2024-05-18 00:04:46');
 
 -- --------------------------------------------------------
 
@@ -62,7 +86,28 @@ INSERT INTO `orderitems` (`id`, `orderId`, `itemId`, `itemQuantity`) VALUES
 (21, 10, 44, 1),
 (22, 11, 42, 1),
 (23, 11, 43, 1),
-(24, 11, 44, 1);
+(24, 11, 44, 1),
+(25, 12, 43, 1),
+(26, 13, 35, 1),
+(27, 13, 44, 1),
+(28, 14, 43, 1),
+(29, 14, 42, 1),
+(30, 14, 45, 1),
+(31, 15, 43, 1),
+(32, 16, 45, 1),
+(33, 16, 44, 1),
+(34, 17, 46, 1),
+(35, 18, 49, 1),
+(36, 19, 47, 1),
+(37, 19, 49, 1),
+(38, 20, 51, 1),
+(39, 21, 50, 1),
+(40, 21, 51, 1),
+(41, 22, 51, 1),
+(42, 23, 50, 1),
+(43, 24, 50, 1),
+(44, 24, 51, 1),
+(45, 25, 50, 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +153,7 @@ INSERT INTO `tbl_category` (`categoryId`, `title`, `image_name`, `featured`, `ac
 (21, 'bag', 'item_Category_631.jpg', 'Yes', 'Yes'),
 (22, 'canva_messi', 'item_Category_609.jpg', 'Yes', 'Yes'),
 (23, 'buddha_Canva', 'item_Category_172.png', 'Yes', 'Yes'),
-(27, 'sialm takma', 'item_Category_299.jpg', 'No', 'Yes');
+(27, 'sialm takma', 'item_Category_299.jpg', 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -133,11 +178,8 @@ CREATE TABLE `tbl_item` (
 --
 
 INSERT INTO `tbl_item` (`itemId`, `title`, `description`, `sub_description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
-(35, 'buddha wall poster', 'description here  mna', 'peacefulbbb', 1040.00, 'item-Name-7669.png', 23, 'No', 'No'),
-(42, 'silamtakma', 'this is specially designed by our best artist miss eshu raut. she is a very humble girl ,very talented', 'sasto saman aayo', 450.00, 'item-Name-9708.jpg', 27, 'Yes', 'Yes'),
-(43, 'cotton bags', 'bags made with pure 100%cotton', '100% pure', 700.00, 'item-Name-1086.jpg', 21, 'Yes', 'Yes'),
-(44, 'fancy bag', 'specially made by our yangri brothers', 'a black bag', 700.00, 'item-Name-9967.jpg', 21, 'Yes', 'Yes'),
-(45, 'white color bag', 'a white color bag', 'a bag', 750.00, 'item-Name-5795.jpg', 21, 'Yes', 'Yes');
+(50, 'messi canva', 'messi photo available', 'messisiiiiii', 1050.00, 'item-Name-9808.jpeg', 22, 'Yes', 'Yes'),
+(51, 'bag', 'bag here', 'white bag', 1050.00, 'item-Name-3140.jpg', 21, 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -162,11 +204,9 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`orderId`, `username`, `userId`, `address`, `phoneNo`, `amount`, `paymentMode`, `orderStatus`, `orderDate`) VALUES
-(7, 'admin', 1, 'itahari', 9810506058, 3500, '0', '0', '2024-03-25 13:13:03'),
-(8, 'admin', 1, 'full street address', 1050050505, 4050, '0', '0', '2024-03-25 13:15:01'),
-(9, 'admin', 1, 'full street address', 1050050505, 700, '0', '0', '2024-03-25 15:12:53'),
-(10, 'enjal', 4, 'itahari', 9810506058, 1850, '0', '0', '2024-03-25 17:21:44'),
-(11, 'sampey', 21, 'itahari', 1050050505, 1850, '0', '0', '2024-04-12 09:54:20');
+(23, 'prashant', 25, 'Itahari', 9810506058, 1050, '0', '1', '2024-05-17 23:40:19'),
+(24, 'motey', 27, 'balgram', 9810506058, 2100, '0', '1', '2024-05-17 23:58:29'),
+(25, 'kabin', 20, 'nepal', 1234566691, 1050, '0', '0', '2024-05-18 00:03:42');
 
 -- --------------------------------------------------------
 
@@ -191,11 +231,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `email`, `phone`, `password`, `joinDate`, `address`) VALUES
-(16, 'prashant', 'my first name', 'my last name', 'prashant@gmail.com', 9810506058, '$2y$10$qvwq0oIkPRVSn5P5Kdi1vOCWGfp9oNMz2rABpYdSzxGTi65r8hXLG', '2024-03-25 17:27:49', 'itahari'),
-(18, 'enjal', '', '', 'me@mydomain.com', 9810506058, '$2y$10$zEk7oFvHJazskHjI8o.vc.5TyAbmTNO2mhRMCM0v4CiEibIzRIdXu', '2024-03-25 17:33:13', 'itahari'),
-(19, 'admin', '', '', 'me@mydomain.com', 9810506058, '$2y$10$ti/7/qB8N4LXydG6BTeFgOxYWukTy2VhHwGPElcgXEwESgdmpwTpq', '2024-03-25 17:33:52', 'itahari'),
 (20, 'kabin', 'kabin ', 'rai', 'kabin69@gmail.com', 9765378356, '$2y$10$g6o.IPBc5pVBfTRftwWJOemESQn./D4cLjUcc14Zqk60FfV77ma5q', '2024-03-25 17:35:44', 'full street address'),
-(21, 'sampey', 'sampanna', 'Adhikari', 'sampanna@gmail.com', 1050050505, '$2y$10$JbZEbqqQFTifhe.Nsliy0OB7fAI3nI0s2KWfBKpN/C6w/ve5nB2Ee', '2024-04-12 09:53:29', 'itahari');
+(21, 'sampey', 'sampanna', 'Adhikari', 'sampanna@gmail.com', 1050050505, '$2y$10$JbZEbqqQFTifhe.Nsliy0OB7fAI3nI0s2KWfBKpN/C6w/ve5nB2Ee', '2024-04-12 09:53:29', 'itahari'),
+(25, 'prashant', 'my first name', 'my last name', 'prashant@gmail.com', 9765378356, '$2y$10$.x7RY3gcOayf8PVUHwgCOu9LDoiP.3eTNWgZBzAP8jRmQ7OiTCDKW', '2024-05-13 11:51:23', 'balgram'),
+(27, 'motey', 'saman', 'bhattarai', 'samanbhattarai@gmail.com', 1234566691, '$2y$10$1rhiYAxGbl/kfGgykApWH.5eBIabFnVNVLzdcbr1NSQmwYHuOdZAq', '2024-05-17 23:57:08', 'balgram');
 
 -- --------------------------------------------------------
 
@@ -229,14 +268,20 @@ INSERT INTO `viewcart` (`cartItemId`, `itemId`, `itemQuantity`, `userId`, `added
 (70, 34, 2, 12, '2024-03-18 11:47:46'),
 (71, 34, 1, 13, '2024-03-18 12:47:07'),
 (72, 36, 170, 14, '2024-03-18 17:14:30'),
-(92, 44, 1, 16, '2024-03-25 17:45:01'),
-(93, 43, 1, 16, '2024-03-25 17:45:08'),
-(94, 42, 1, 16, '2024-03-25 17:45:17'),
-(95, 45, 1, 16, '2024-03-25 17:45:20');
+(105, 44, 1, 19, '2024-05-12 09:07:54'),
+(106, 43, 1, 16, '2024-05-12 12:09:08'),
+(107, 44, 1, 16, '2024-05-12 12:09:09');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `deliverydetails`
+--
+ALTER TABLE `deliverydetails`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `orderId` (`orderId`);
 
 --
 -- Indexes for table `orderitems`
@@ -287,10 +332,16 @@ ALTER TABLE `viewcart`
 --
 
 --
+-- AUTO_INCREMENT for table `deliverydetails`
+--
+ALTER TABLE `deliverydetails`
+  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -308,25 +359,25 @@ ALTER TABLE `tbl_category`
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `itemId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `itemId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `orderId` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `orderId` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `viewcart`
 --
 ALTER TABLE `viewcart`
-  MODIFY `cartItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `cartItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- Constraints for dumped tables
