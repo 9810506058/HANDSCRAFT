@@ -1,4 +1,4 @@
-<?php include('partials/nav.php');
+<?php include('partials/menu.php');
 
 if ($loggedin) {
     ?>

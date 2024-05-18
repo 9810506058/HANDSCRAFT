@@ -80,7 +80,6 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
                 <li class="dropdown">
                     <span>  <?php echo $username ?></span>
                     <div class="dropdown-content">
-                        <a href="profile.php">Profile</a>
                         <a href="logout.php">Logout</a>
                     </div>
                 </li>

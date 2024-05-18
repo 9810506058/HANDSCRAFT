@@ -29,7 +29,8 @@ if($loggedin){
                 <tr>
                     <th>Order Id</th>
                     <th>User Id</th>
-                    <th>Address</th>
+                    <th>Address</th> 
+                    <th> username</th>
                     <th>Phone No</th>
                     <th>Amount</th>						
                     <th>Payment Mode</th>
@@ -47,6 +48,7 @@ if($loggedin){
                         $Id = $row['userId'];
                         $orderId = $row['orderId'];
                         $address = $row['address'];
+                        $name= $row['username'];
                        
                         $phoneNo = $row['phoneNo'];
                         $amount = $row['amount'];
@@ -66,6 +68,7 @@ if($loggedin){
                                 <td>' . $orderId . '</td>
                                 <td>' . $Id . '</td>
                                 <td data-toggle="tooltip" title="' .$address. '">' . substr($address, 0, 20) . '...</td>
+                                <td>' . $username . '</td>
                                 <td>' . $phoneNo . '</td>
                                 <td>' . $amount . '</td>
                                 <td>' . $paymentMode . '</td>
