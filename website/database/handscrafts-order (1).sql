@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2024 at 05:24 AM
+-- Generation Time: May 19, 2024 at 06:06 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -152,8 +152,20 @@ CREATE TABLE `tbl_category` (
 INSERT INTO `tbl_category` (`categoryId`, `title`, `image_name`, `featured`, `active`) VALUES
 (21, 'bag', 'item_Category_631.jpg', 'Yes', 'Yes'),
 (22, 'canva_messi', 'item_Category_609.jpg', 'Yes', 'Yes'),
-(23, 'buddha_Canva', 'item_Category_172.png', 'Yes', 'Yes'),
-(27, 'sialm takma', 'item_Category_299.jpg', 'Yes', 'Yes');
+(27, 'sialm takma', 'item_Category_299.jpg', 'Yes', 'Yes'),
+(31, 'chrochet coaster', 'item_Category_860.jpg', 'Yes', 'Yes'),
+(32, 'Wooden Spoon', 'item_Category_735.webp', 'Yes', 'Yes'),
+(35, 'Home decor', 'item_Category_492.jpg', 'Yes', 'Yes'),
+(36, 'Gifts', 'item_Category_129.jpg', 'Yes', 'Yes'),
+(37, 'Jwellery', 'item_Category_630.jpg', 'Yes', 'Yes'),
+(38, 'Pot', 'item_Category_940.jpeg', 'Yes', 'Yes'),
+(39, 'Doll', 'item_Category_969.jpeg', 'Yes', 'Yes'),
+(40, 'Bottle', 'item_Category_206.jpeg', 'Yes', 'Yes'),
+(41, 'Matress', 'item_Category_571.jpeg', 'Yes', 'Yes'),
+(42, 'flag', 'item_Category_474.jpeg', 'Yes', 'Yes'),
+(43, 'Vase', 'item_Category_129.jpeg', 'Yes', 'Yes'),
+(44, 'Slippers', 'item_Category_172.jpeg', 'Yes', 'Yes'),
+(45, 'Scrunchies', 'item_Category_79.jpeg', 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -179,7 +191,20 @@ CREATE TABLE `tbl_item` (
 
 INSERT INTO `tbl_item` (`itemId`, `title`, `description`, `sub_description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
 (50, 'messi canva', 'messi photo available', 'messisiiiiii', 1050.00, 'item-Name-9808.jpeg', 22, 'Yes', 'Yes'),
-(51, 'bag', 'bag here', 'white bag', 1050.00, 'item-Name-3140.jpg', 21, 'Yes', 'Yes');
+(51, 'bag', 'bag here', 'white bag', 1050.00, 'item-Name-3140.jpg', 21, 'Yes', 'Yes'),
+(52, 'Wall hanging', '', '', 250.00, 'item-Name-8224.jpg', 35, 'Yes', 'Yes'),
+(53, 'Wall decor', '', '', 500.00, 'item-Name-8074.jpg', 35, 'Yes', 'Yes'),
+(54, 'pressed plants', 'plants are dried and pressed in a designable way', '', 600.00, 'item-Name-4668.jpg', 36, 'Yes', 'Yes'),
+(55, 'Necklace', '', '', 2000.00, 'item-Name-8227.jpg', 37, 'Yes', 'Yes'),
+(56, 'DIY pot', '', '', 750.00, 'item-Name-9469.jpeg', 38, 'Yes', 'Yes'),
+(57, 'Bonnet doll', '', '', 560.00, 'item-Name-2009.jpeg', 39, 'Yes', 'Yes'),
+(58, 'Shabby chic ', '', '', 400.00, 'item-Name-5029.jpeg', 40, 'Yes', 'Yes'),
+(59, 'Stavrevy door mat', '', '', 3400.00, 'item-Name-797.jpeg', 41, 'Yes', 'Yes'),
+(60, 'Paper  bag', '', '', 560.00, 'item-Name-7534.jpeg', 21, 'Yes', 'Yes'),
+(61, 'Scout flag', '', '', 300.00, 'item-Name-2878.jpeg', 42, 'Yes', 'Yes'),
+(63, 'Irish vase', '', '', 1300.00, 'item-Name-3449.jpeg', 43, 'Yes', 'Yes'),
+(64, 'Flop house slipper', '', '', 400.00, 'item-Name-8028.jpeg', 44, 'Yes', 'Yes'),
+(65, 'Eucalptus scrunchie', '', '', 150.00, 'item-Name-1878.jpeg', 45, 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -234,7 +259,8 @@ INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `email`, `phone`
 (20, 'kabin', 'kabin ', 'rai', 'kabin69@gmail.com', 9765378356, '$2y$10$g6o.IPBc5pVBfTRftwWJOemESQn./D4cLjUcc14Zqk60FfV77ma5q', '2024-03-25 17:35:44', 'full street address'),
 (21, 'sampey', 'sampanna', 'Adhikari', 'sampanna@gmail.com', 1050050505, '$2y$10$JbZEbqqQFTifhe.Nsliy0OB7fAI3nI0s2KWfBKpN/C6w/ve5nB2Ee', '2024-04-12 09:53:29', 'itahari'),
 (25, 'prashant', 'my first name', 'my last name', 'prashant@gmail.com', 9765378356, '$2y$10$.x7RY3gcOayf8PVUHwgCOu9LDoiP.3eTNWgZBzAP8jRmQ7OiTCDKW', '2024-05-13 11:51:23', 'balgram'),
-(27, 'motey', 'saman', 'bhattarai', 'samanbhattarai@gmail.com', 1234566691, '$2y$10$1rhiYAxGbl/kfGgykApWH.5eBIabFnVNVLzdcbr1NSQmwYHuOdZAq', '2024-05-17 23:57:08', 'balgram');
+(27, 'motey', 'saman', 'bhattarai', 'samanbhattarai@gmail.com', 1234566691, '$2y$10$1rhiYAxGbl/kfGgykApWH.5eBIabFnVNVLzdcbr1NSQmwYHuOdZAq', '2024-05-17 23:57:08', 'balgram'),
+(28, 'admin', 'aayusma', 'gautam', 'gtmaayusma60@gmail.com', 9862394760, '$2y$10$Y4X.JWQIgqjIo15xfyJu6eJBAjuWkXZb24twC84R.8X0WGN.ca1qC', '2024-05-19 12:35:52', 'pokhara');
 
 -- --------------------------------------------------------
 
@@ -270,7 +296,8 @@ INSERT INTO `viewcart` (`cartItemId`, `itemId`, `itemQuantity`, `userId`, `added
 (72, 36, 170, 14, '2024-03-18 17:14:30'),
 (105, 44, 1, 19, '2024-05-12 09:07:54'),
 (106, 43, 1, 16, '2024-05-12 12:09:08'),
-(107, 44, 1, 16, '2024-05-12 12:09:09');
+(107, 44, 1, 16, '2024-05-12 12:09:09'),
+(123, 51, 1, 28, '2024-05-19 12:36:53');
 
 --
 -- Indexes for dumped tables
@@ -353,13 +380,13 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `categoryId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `categoryId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `itemId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `itemId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
@@ -371,13 +398,13 @@ ALTER TABLE `tbl_orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `viewcart`
 --
 ALTER TABLE `viewcart`
-  MODIFY `cartItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `cartItemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- Constraints for dumped tables
