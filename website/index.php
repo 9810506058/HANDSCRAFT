@@ -17,7 +17,7 @@ if(isset($_SESSION['login'])){
     <div class="row">
         <?php 
         // Display categories
-        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' ";
+        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 5 " ;
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0) {
             while($row = mysqli_fetch_assoc($res)) {
@@ -66,7 +66,7 @@ if(isset($_SESSION['login'])){
     <div class="row">
         <?php 
         // Display items
-        $sql2 = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes'";
+        $sql2 = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes' LIMIT 5";
         $res2 = mysqli_query($conn, $sql2);
         if(mysqli_num_rows($res2) > 0) {
             while($row = mysqli_fetch_assoc($res2)) {
