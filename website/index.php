@@ -25,7 +25,7 @@ if(isset($_SESSION['login'])){
                 $title = $row['title'];
                 $image_name = $row['image_name'];
         ?>
-        <div class="col-md-4 py-3">
+        <div class="col-md-3 py-2">
             <a href="<?php echo SITEURL; ?>category-items.php?category_id=<?php echo $id; ?>" style="text-decoration: none;">
                 <div class="card">
                     <?php 
@@ -34,7 +34,7 @@ if(isset($_SESSION['login'])){
                         echo "<div class='error'>Image not Available</div>";
                     } else {
                     ?>
-                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" style="height:300px;">
+                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" style="height:200px;">
                     <?php
                     }
                     ?>
@@ -57,10 +57,9 @@ if(isset($_SESSION['login'])){
         <a href="categories.php" class="btn text-danger"><i class="fa-solid fa-arrow-down"></i></a>
     </p>
 </section>
-<div class="container">
+<!-- <div class="container">
     <div class="line" style="width: 100%; height: 2px; background-color: #e53937;"></div>
-</div>
-
+</div> -->
 <section class="item" id="item">
     <h1 class="text-center text-danger">ITEMS</h1>
     <div class="row">
