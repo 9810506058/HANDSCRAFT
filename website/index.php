@@ -17,7 +17,7 @@ if(isset($_SESSION['login'])){
     <div class="row">
         <?php 
         // Display categories
-        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 5 " ;
+        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 8" ;
         $res = mysqli_query($conn, $sql);
         if(mysqli_num_rows($res) > 0) {
             while($row = mysqli_fetch_assoc($res)) {
@@ -34,7 +34,7 @@ if(isset($_SESSION['login'])){
                         echo "<div class='error'>Image not Available</div>";
                     } else {
                     ?>
-                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" style="height:200px;">
+                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" style="height:250px;">
                     <?php
                     }
                     ?>
@@ -51,16 +51,17 @@ if(isset($_SESSION['login'])){
             echo "<div class='col-md-12'><div class='error'>Category not Added.</div></div>";
         }
         ?>
-    </div>
+    
     <p class="text-center text-danger">
         <a href="categories.php" class="text-danger" style="text-decoration: none;">More categories</a>
         <a href="categories.php" class="btn text-danger"><i class="fa-solid fa-arrow-down"></i></a>
     </p>
-</section>
-<!-- <div class="container">
-    <div class="line" style="width: 100%; height: 2px; background-color: #e53937;"></div>
-</div> -->
-<section class="item" id="item">
+
+
+<div class="container">
+    <div class="line" style="width: 100%; height: 2px; background-color: #e53937;"></div> 
+
+<pre></pre>
     <h1 class="text-center text-danger">ITEMS</h1>
     <div class="row">
         <?php 
@@ -76,7 +77,7 @@ if(isset($_SESSION['login'])){
                 $sub_description = $row['sub_description'];
                 $image_name = $row['image_name'];
         ?>
-         <div class="col-md-3 py-2 py-md-0">
+         <div class="col-md-3 py-3 py-md-3">
             <div class="card">
                 <?php 
                 // Check if image available
@@ -124,15 +125,15 @@ else{
             echo "<div class='col-md-12'><div class='error'>Items not available.</div></div>";
         }
         ?>
-    </div>
-</section>
+   
 
 <div class="clearfix"></div>
 <p class="text-center text-danger">
     <a href="item.php" class="text-danger" style="text-decoration: none;">More items</a>
     <a href="item.php" class="btn text-danger"><i class="fa-solid fa-arrow-down"></i></a>
 </p>
-
+ </div>
+</section>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <?php include("partials-frontend/footer.php"); ?>
