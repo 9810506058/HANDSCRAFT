@@ -158,7 +158,9 @@
                             <button class="btn upload">choose</button>
                             <input type="file" name="image" id="image" accept="image/*">
                         </div>
+                        
                         <button type="submit" name="updateProfilePic" class="btn btn-primary" style="margin-top: -20px;font-size: 15px;padding: 3px 8px;">Update</button>
+
                     </form>
                     
                     <ul class="meta list list-unstyled" style="text-align:center;">

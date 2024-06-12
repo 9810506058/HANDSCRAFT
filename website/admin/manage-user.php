@@ -12,6 +12,11 @@ if($loggedin){
         
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .table td {
+        text-align: center;
+    }
+</style>
 
 <div class="container" style="margin-top:50px">
 	
@@ -23,7 +28,7 @@ if($loggedin){
 	    <br>
         <div class="table-responsive-sm">
         <table class="table w-55 h-30 table-bordered">
-    <thead class="table-danger">
+    <thead class="table-danger ">
 
                         <tr>
                             <th>SN</th>
@@ -55,7 +60,7 @@ if($loggedin){
                                     <td>' .$phone. '</td>
                                     <td class="text-center">
                                         <div class="row mx-auto" style="width:112px">
-                                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editUser' .$Id. '" type="button">Edit</button>';
+                                            ';
                                           
                                            
                                                 echo '<form action="_userManage.php" method="POST">
@@ -148,58 +153,7 @@ if($loggedin){
 
 
 ?>
-<!-- editUser Modal -->
-<div class="modal fade" id="editUser<?php echo $Id; ?>" tabindex="-1" role="dialog" aria-labelledby="editUser<?php echo $Id; ?>" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color:wheat;">
-        <h5 class="modal-title" id="editUser<?php echo $Id; ?>">User Id: <b><?php echo $Id; ?></b></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-        <div class="modal-body">
-                
-            <form action="_userManage.php" method="post">
-                <div class="form-group">
-                    <b><label for="username">Username</label></b>
-                    <input class="form-control" id="username" name="username" value="<?php echo $name; ?>" type="text" >
-                </div>
-                <div class="form-group">
-                    <b><label for="firstName">First Name:</label></b>
-                    <input class="form-control" id="firstName" name="firstName" value="<?php echo $firstName; ?>" type="text" >
-                </div>
-                <div class="form-group">
-                    <b><label for="lastName">Last Name:</label></b>
-                    <input class="form-control" id="lastName" name="lastName" value="<?php echo $lastName; ?>" type="text" >
-                </div>
-               
-                <div class="form-group">
-                    <b><label for="email">Email:</label></b>
-                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
-                </div>
-                <div class="form-group">
-                    <b><label for="address">Address:</label></b>
-                    <input class="form-control" id="address" name="address" value="<?php echo $address; ?>" type="text" required>
-                </div>
-                <div class="form-group row my-0">
-                    <div class="form-group col-md-6 my-0">
-                        <b><label for="phone">Phone No:</label></b>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon">+91</span>
-                            </div>
-                            <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $phone; ?>" required pattern="[0-9]{10}" maxlength="10">
-                        </div>
-                    </div>
-                </div>
-                <input type="hidden" id="userId" name="userId" value="<?php echo $Id; ?>">
-                <button type="submit" name="editUser" class="btn btn-success">Update</button>
-            </form>
-        </div>
-    </div>
-  </div>
-</div>
+
 
 <?php
     }

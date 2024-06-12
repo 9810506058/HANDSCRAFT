@@ -68,7 +68,7 @@ if($loggedin){
                                 <td>' . $orderId . '</td>
                                 <td>' . $Id . '</td>
                                 <td data-toggle="tooltip" title="' .$address. '">' . substr($address, 0, 20) . '...</td>
-                                <td>' . $username . '</td>
+                                <td>' . $name . '</td>
                                 <td>' . $phoneNo . '</td>
                                 <td>' . $amount . '</td>
                                 <td>' . $paymentMode . '</td>
