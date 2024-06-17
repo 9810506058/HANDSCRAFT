@@ -19,7 +19,7 @@ $categoryTitle = "Categories";
     <div class="row" style="margin-top: 50px;">
         <?php
         //Display categories that are active
-        $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
+        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes'";
         //Execute the Query
         $res = mysqli_query($conn, $sql);
         //Check whether the categories are available or not

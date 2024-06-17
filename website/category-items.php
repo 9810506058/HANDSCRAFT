@@ -18,7 +18,7 @@ if(isset($_GET['category_id'])) {
     //Category id is set and get the id
     $category_id = $_GET['category_id'];
     // Get the Category Title Based on Category ID
-    $sql = "SELECT title FROM tbl_category WHERE categoryId=$category_id";
+    $sql = "SELECT title FROM tbl_category WHERE categoryId=$category_id active='Yes' AND featured='Yes'" ;
 
     //Execute the Query
     $res = mysqli_query($conn, $sql);
