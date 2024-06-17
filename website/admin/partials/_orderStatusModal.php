@@ -47,7 +47,7 @@
         ?>
             <form action="partials/_orderManage.php" method="post">
                 <div class="text-left my-2">
-                    <b><label for="name">Delivery Boy Name</label></b>
+                    <b><label for="name">Delivery person name </label></b>
                     <input class="form-control" id="name" name="name" value="<?php echo $deliveryBoyName; ?>" type="text" required>
                 </div>
                 <div class="text-left my-2 row">
