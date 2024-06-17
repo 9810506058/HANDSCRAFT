@@ -9,7 +9,7 @@ include("partials-frontend/nav.php");
   <div class="row" style="margin-top: 30px;">
     <?php 
     //Display items that are Active
-    $sql = "SELECT * FROM tbl_item WHERE active='Yes'";
+    $sql = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes'";
     //Execute the Query
     $res = mysqli_query($conn, $sql);
     //Check whether the items are available or not

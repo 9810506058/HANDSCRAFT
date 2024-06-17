@@ -88,7 +88,7 @@ if(isset($_POST['submit'])){
 
 else{
     //user not available and login failed
-    $_SESSION['login']="<div class='error text-center'>Login Failed.</div>";
+    $_SESSION['login']="<div class='error text-center'>Login Failed password pair didnot matched.</div>";
     header("location: " . SITEURL . 'admin/login.php');
 }
 }

@@ -16,7 +16,7 @@ include('config/constant.php');
         <div class="login-form">
             <h2>Register Window</h2>
             <form method="post" action="">
-                <input class="input-box" type="text" name="username" placeholder="Your Name">
+                <input class="input-box" type="text" name="username" placeholder="Your username ">
                 <input class="input-box" type="text" name="firstName" placeholder="Your First Name">
                 <input class="input-box" type="text" name="lastName" placeholder="Your Last Name">
 
