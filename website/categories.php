@@ -1,14 +1,13 @@
 <?php
 include("partials-frontend/nav.php");
 
-// Initialize an empty variable to store the category title
-$categoryTitle = "Categories";
+
 
 ?>
 
 <html>
 <head>
-    <title><?php echo $categoryTitle; ?></title>
+   
 </head>
 <body>
 <section class="item" id="item">
@@ -30,9 +29,7 @@ $categoryTitle = "Categories";
                 $id = $row['categoryId'];
                 $title = $row['title'];
                 $image_name = $row['image_name'];
-
-                // Update category title variable
-                $categoryTitle = $title;
+                
                 ?>
                 <div class="col-md-3 py-3 py-md-0">
                     <a href="<?php echo SITEURL; ?>category-items.php?category_id=<?php echo $id; ?>"
