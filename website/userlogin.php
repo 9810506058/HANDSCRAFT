@@ -71,9 +71,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['username'] = $username;
             $_SESSION['userId'] = $userId;
             
-            // $_SESSION['login']="<div class='success'> Welcome $username  ! You are logged in.</div>";
-            // header('location:'.SITEURL.'index.php?loginsuccess=true');
-            // exit();
+             //$_SESSION['login']="<div class='success'> Welcome $username  ! You are logged in.</div>";
+             header('location:'.SITEURL.'index.php?loginsuccess=true');
+            exit();
         } 
         else{ 
             $_SESSION['failed-access']="<div class='error' style='font-size : 18px'> login failed incorrect password.</div>";
