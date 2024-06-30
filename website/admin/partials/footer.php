@@ -2,7 +2,7 @@
       <!-- footer starts--->
       <div class="footer">
    <div class="wrapper">
-        <p class="text-center">2024 All rights reserved, Handscraft Artistry
+        <p class="text-center">2024 All rights reserved, Handscraft Artistry byPrashantAdhikari
 
         </p>
         </div>

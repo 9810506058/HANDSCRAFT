@@ -166,7 +166,7 @@
                        
                         
                         <li class="email"><?php echo $email ?></li>
-                        <li class="my-2"><a href="userlogout.php"><button class="btn btn-secondary" style="font-size: 15px;padding: 3px 8px;">Logout</button></a></li>
+                        <li class="my-2"><a href="userlogout.php"><button class="btn btn-primary" style="font-size: 15px;padding: 3px 8px; color:pink">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
