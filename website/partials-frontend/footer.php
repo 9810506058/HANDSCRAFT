@@ -13,7 +13,7 @@
   <hr  style="width:100%;">
   
   <div class="c-content">
-    &copy; Copyright Handscraft Artistry PrashantAdhikari. All Rights Reserved <br>
+       &copy; Copyright Handscraft Artistry PrashantAdhikari. All Rights Reserved <br>
    
   </div>
 </footer>

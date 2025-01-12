@@ -69,7 +69,7 @@ if(isset($_SESSION['login'])){
         $sql2 = "SELECT * FROM tbl_item WHERE active='Yes' AND featured='Yes' LIMIT 5";
         $res2 = mysqli_query($conn, $sql2);
         if(mysqli_num_rows($res2) > 0) {
-            while($row = mysqli_fetch_assoc($res2)) {
+            while($row = mysqli_fetch_assoc     ($res2)) {
                 $id = $row['itemId'];
                 $title = $row['title'];
                 $price = $row['price'];
@@ -101,7 +101,6 @@ if ($loggedin) {
     $quaExistRows = mysqli_num_rows($quaresult);
     if($quaExistRows == 0) {
         echo '<form action="_manageCart.php" method="POST"  class="d-inline">
-              <input type="hidden" name="itemId" value="'.$id. '">
               <button type="submit" name="addToCart" class="btn btn-primary mx-7 my-3 " >Add to Cart</button>';
     } else {
         echo '<a href="cart.php"><button class="btn btn-success mx-7" >Go to Cart</button></a>';
